@@ -23,6 +23,7 @@ app.controller("tecladoController", function($scope, $location, dbService){
     // dbService.runAsync(`SELECT * FROM ocorrencias`, function(){});
 
     $scope.consoante_id = 0;
+    
     $("td[linha=1][coluna=1]").css("color", "red");
     function pesquisar() {
       // Retira os sinais

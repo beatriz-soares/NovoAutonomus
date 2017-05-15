@@ -23,7 +23,6 @@ app.controller("tecladoController", function($scope, $location, dbService){
     // dbService.runAsync(`SELECT * FROM ocorrencias`, function(){});
 
     $scope.consoante_id = 0;
-    
     $("td[linha=1][coluna=1]").css("color", "red");
     function pesquisar() {
       // Retira os sinais
@@ -141,7 +140,6 @@ app.controller("tecladoController", function($scope, $location, dbService){
         }
     }
 
-
     $scope.voltar = function() {
         $scope.zerar("dash");
     };
@@ -205,22 +203,39 @@ app.controller("tecladoController", function($scope, $location, dbService){
 
   $scope.adicionar_tecla = function(a) {
 
-    if (a){
-      var tecla = " "
+    if (a == ' '){
+      var tecla = " ";
+    }
+    else if (a == 'enter'){
+      var tecla = "\n";
     }
     else{
       var tecla = $scope.alfabeto[$scope.linha-1][$scope.coluna-1];
     }
+
     $scope.frase_total += tecla;
-    pesquisar();
-    console.log($scope.frase_total);
-    $scope.zerar("dash");
-  }
+
+    var fs = require('fs');
+    fs.writeFile('texto.txt', $scope.frase_total, function (err) {
+      if (err) {
+        console.log(err);
+      } else {
+        // done
+      }
+      });
+    }
 
   $scope.backspace = function() {
     $scope.frase_total = $scope.frase_total.substring(0,$scope.frase_total.length - 1);
-    pesquisar();
-  }
+    var fs = require('fs');
+    fs.writeFile('texto.txt', $scope.frase_total, function (err) {
+      if (err) {
+        console.log(err);
+      } else {
+        // done
+      }
+      });
+    }
 
   $scope.apagar_frase_toda = function(){
     $scope.frase_total = "";

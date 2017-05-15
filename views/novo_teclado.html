@@ -64,54 +64,63 @@
             </tr> </tbody>
           </table> </div>
 
-      <div class="col-md-4">
+      <div class="col-md-3">
         <div class="row"  style="padding: 20px;">
           <label> Linha</label>
           <span class="input-group-btn">
-              <button type="button" class="btn btn-info btn-number col-md-12" click-temporal ng-click="pula_linha('mais')">
-                  <span class="glyphicon glyphicon-plus"></span>
+              <button type="button" class="btn btn-info btn-number col-md-12" click-temporal ng-click="pula_linha('menos')">
+                  <span class="glyphicon glyphicon-arrow-up"></span>
               </button>
           </span>
+          <br>
           <input type="text" class="form-control input-number col-md-12" value="{{linha}}">
           <span class="input-group-btn">
-              <button type="button" class="btn btn-default btn-number col-md-12" click-temporal ng-click="pula_linha('menos')" >
-                <span class="glyphicon glyphicon-minus"></span>
+              <button type="button" class="btn btn-info btn-number col-md-12" click-temporal ng-click="pula_linha('mais')" >
+                <span class="glyphicon glyphicon-arrow-down"></span>
               </button>
           </span>
       </div>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-3">
         <div class="row" style="padding: 20px;">
-          <label> Coluna</label>
-          <span class="input-group-btn">
-              <button type="button" class="btn btn-info btn-number col-md-12" click-temporal ng-click="pula_coluna('mais')">
-                  <span class="glyphicon glyphicon-plus"></span>
+          <label class="col-md-12"> Coluna</label>
+              <button type="button" class="btn btn-info btn-number col-md-4 coluna" click-temporal ng-click="pula_coluna('menos')">
+                  <i class="glyphicon glyphicon-arrow-left"></i>
               </button>
-          </span>
-          <input type="text" class="form-control input-number col-md-12" value="{{coluna}}">
-          <span class="input-group-btn">
-              <button type="button" class="btn btn-default btn-number col-md-12" click-temporal ng-click="pula_coluna('menos')" >
-                <span class="glyphicon glyphicon-minus"></span>
+              <div class="col-md-4">
+                <input type="text" class="form-control input-number coluna" value="{{coluna}}">
+              </div>
+              <button type="button" class="btn btn-info btn-number col-md-4 coluna" click-temporal ng-click="pula_coluna('mais')" >
+                <i class="glyphicon glyphicon-arrow-right"></i>
               </button>
-          </span>
       </div>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-3">
         <label> <br></label>
         <div class="row" style="padding: 20px;">
-          <button type="button" class="col-md-12 btn btn-primary" click-temporal ng-click="adicionar_tecla(1)">
+          <button type="button" class="col-md-12 btn btn-success" click-temporal ng-click="adicionar_tecla()">
+            OK
+          </button>
+          <button type="button" class="col-md-12 btn btn-warning" click-temporal ng-click="adicionar_tecla('enter')" style="margin-top:10px; height:75px;">
+              <span class="">Enter</i>
+          </button>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <label> <br></label>
+        <div class="row" style="padding: 20px;">
+          <button type="button" class="col-md-12 btn btn-primary" click-temporal ng-click="adicionar_tecla(' ')">
               <i class="material-icons">space_bar</i>
           </button>
           <button type="button" class="col-md-12 btn btn-danger"  style="margin-top:10px; height:75px;" click-temporal ng-click="backspace()">
               <i class="material-icons">backspace</i>
           </button>
-          <button type="button" class="col-md-12 btn btn-success"  style="margin-top:10px;" click-temporal ng-click="adicionar_tecla()">
-            OK
-          </button>
         </div>
       </div>
       <div class="col-md-12">
-        <p>{{frase_total}}</p>
+        <textarea rows="6" style="width: 100%; font-size:30px;">
+          {{frase_total}}
+        </textarea>
 
       </div>
 

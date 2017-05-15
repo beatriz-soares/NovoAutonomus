@@ -1,0 +1,349 @@
+<md-toolbar class="toolbar-principal">
+  <div layout="row" layout-wrap>
+    <div class="md-toolbar-tools" flex="25" click-temporal>
+      <a href="#/" style="width: 100%; padding: 20px">
+        <md-button aria-label="Início" class="btn2">
+          Início
+        </md-button>
+      </a>
+    </div>
+    <div flex=40 class="md-toolbar-tools" click-temporal ng-click=voltar()>
+        <a >
+            <md-button aria-label="Início" class="btn2">
+                Dash Teclado
+            </md-button>
+      </a>
+    </div>
+    <div class="md-toolbar-tools" flex="35">
+      <a href="#" style="width: 100%; padding: 20px">
+        <md-button aria-label="Pausar Ações" class="btn2" start-stop>
+            Pausar Ações
+        </md-button>
+      </a>
+    </div>
+  </div>
+</md-toolbar>
+<md-content layout-padding>
+    <div layout="column">
+        <div layout="row" id="dash-teclado" ng-show="dash">
+            <div flex=40 class="coluna-teclado">
+                <div class="card-teclado-dash" click-temporal ng-click="vogais()">
+                    <p class="md-raised btn1" >Vogal</p>
+                </div>
+                <div class="card-teclado-dash" click-temporal ng-click=consoantes()>
+                    <p class="md-raised btn1" >Consoante</p>
+                </div>
+            </div>
+            <div flex=60 class="card-teclado-dash">
+                <div layout="row">
+                    <div flex class="coluna-teclado">
+                        <div flex class="card-teclado-dash" click-temporal ng-click=numeros()>
+                            <p class="md-raised btn1" >Números</p>
+                        </div>
+                        <div flex class="card-teclado-dash" click-temporal ng-click=pontuacoes()>
+                            <p class="md-raised btn1" >Outros</p>
+                        </div>
+                    </div>
+                    <div flex class="coluna-teclado">
+                        <div ng-click="backspace()" flex class="card-teclado-dash" click-temporal>
+                            <p class="md-raised btn1">
+                                <i class="material-icons">backspace</i>
+                            </p>
+                        </div>
+                        <div flex class="card-teclado-dash" click-temporal>
+                            <p ng-click="adicionar_tecla(' ')" class="md-raised btn1" >
+                                <i class="material-icons">space_bar</i>
+                            </p>
+                        </div>
+                    </div>
+                    <div flex>
+                        <div flex class="card-teclado-dash" click-temporal>
+                            <p ng-click="apagar_frase_toda()" class="md-raised btn1">
+                                <i class="material-icons">replay</i>
+                            </p>
+                        </div>
+                        <div flex class="card-teclado-dash" click-temporal>
+                            <p class="md-raised btn1" ng-click="say_n_save()">
+                                <i class="material-icons">mic</i>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div layout="row" id="consoante" ng-hide="dash" style="height: 604px;" ng-if="consoante">
+            <div flex=10>
+                <div class="card-arrow">
+                    <p class="md-raised btn1" click-temporal ng-click="consoante_id = consoante_id - 1">
+                            <md-icon class="material-icons">navigate_before</md-icon>
+                    </p>
+                </div>
+            </div>
+            <ul rn-carousel class="image" style="width: 100%" rn-carousel-index="consoante_id" flex="80">
+                <li layout="row" layout-padding ng-cloak>
+                    <div flex="50" class="coluna-teclado">
+                        <div flex class="card-teclado"  click-temporal>
+                                <p class="md-raised btn1" click-temporal >SHI</p>
+                        </div>
+                        <div flex ng-click="adicionar_tecla('b')" class="card-teclado" click-temporal >
+                                <p class="md-raised btn1">B</p>
+                        </div>
+                        <div flex ng-click="adicionar_tecla('c')" class="card-teclado"  click-temporal>
+                                <p class="md-raised btn1">C</p>
+                        </div>
+                    </div>
+                    <div flex="50" class="coluna-teclado">
+                        <div flex ng-click="adicionar_tecla('d')" class="card-teclado"  click-temporal>
+                                <p class="md-raised btn1">D</p>
+                        </div>
+                        <div flex ng-click="adicionar_tecla('f')" class="card-teclado"  click-temporal >
+                                <p class="md-raised btn1">F</p>
+                        </div>
+                        <div flex ng-click="adicionar_tecla('g')" class="card-teclado" click-temporal >
+                                <p class="md-raised btn1">G</p>
+                        </div>
+                    </div>
+                </li>
+                <li layout="row" layout-padding ng-cloak>
+                    <div flex="50" ng-click="adicionar_tecla('h')" class="coluna-teclado">
+                        <div flex class="card-teclado"  click-temporal>
+                                <p class="md-raised btn1" click-temporal >H</p>
+                        </div>
+                        <div flex ng-click="adicionar_tecla('j')" class="card-teclado" click-temporal >
+                                <p class="md-raised btn1">J</p>
+                        </div>
+                        <div flex ng-click="adicionar_tecla('k')" class="card-teclado"  click-temporal>
+                                <p class="md-raised btn1">K</p>
+                        </div>
+                    </div>
+                    <div flex="50" class="coluna-teclado">
+                        <div flex ng-click="adicionar_tecla('l')" class="card-teclado"  click-temporal>
+                                <p class="md-raised btn1">L</p>
+                        </div>
+                        <div flex ng-click="adicionar_tecla('m')" class="card-teclado"  click-temporal >
+                                <p class="md-raised btn1">M</p>
+                        </div>
+                        <div flex ng-click="adicionar_tecla('n')" class="card-teclado" click-temporal >
+                                <p class="md-raised btn1">N</p>
+                        </div>
+                    </div>
+                </li>
+                <li layout="row" layout-padding ng-cloak>
+                    <div flex="50" class="coluna-teclado">
+                        <div flex ng-click="adicionar_tecla('p')" class="card-teclado"  click-temporal>
+                                <p class="md-raised btn1" click-temporal >P</p>
+                        </div>
+                        <div flex ng-click="adicionar_tecla('q')" class="card-teclado" click-temporal >
+                                <p class="md-raised btn1">Q</p>
+                        </div>
+                        <div flex ng-click="adicionar_tecla('r')" class="card-teclado"  click-temporal>
+                                <p class="md-raised btn1">R</p>
+                        </div>
+                    </div>
+                    <div flex="50" class="coluna-teclado">
+                        <div flex ng-click="adicionar_tecla('s')" class="card-teclado"  click-temporal>
+                                <p class="md-raised btn1">S</p>
+                        </div>
+                        <div flex ng-click="adicionar_tecla('t')" class="card-teclado"  click-temporal >
+                                <p class="md-raised btn1">T</p>
+                        </div>
+                        <div flex ng-click="adicionar_tecla('v')" class="card-teclado" click-temporal >
+                                <p class="md-raised btn1">V</p>
+                        </div>
+                    </div>
+                </li>
+                <li layout="row" layout-padding ng-cloak>
+                    <div flex="50" class="coluna-teclado">
+                        <div flex ng-click="adicionar_tecla('x')" class="card-teclado"  click-temporal>
+                                <p class="md-raised btn1" click-temporal >X</p>
+                        </div>
+                        <div flex ng-click="adicionar_tecla('w')" class="card-teclado" click-temporal >
+                                <p class="md-raised btn1">W</p>
+                        </div>
+                        <div flex ng-click="adicionar_tecla('y')" class="card-teclado"  click-temporal>
+                                <p class="md-raised btn1">Y</p>
+                        </div>
+                    </div>
+                    <div flex="50" class="coluna-teclado">
+                        <div flex ng-click="adicionar_tecla('z')" class="card-teclado"  click-temporal>
+                                <p class="md-raised btn1">Z</p>
+                        </div>
+                        <div flex class="card-teclado"  click-temporal >
+                                <p class="md-raised btn1"> </p>
+                        </div>
+                        <div flex class="card-teclado" click-temporal >
+                                <p class="md-raised btn1"> </p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <div flex=10>
+                <div class="card-arrow">
+                    <p class="md-raised btn1" click-temporal ng-click="consoante_id = consoante_id + 1">
+                        <md-icon class="material-icons">navigate_next</md-icon>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div layout="row" id="vogal" ng-hide="dash" style="height: 604px;" ng-if="vogal">
+                <div flex="50" class="coluna-teclado">
+                    <div flex class="card-teclado"  click-temporal>
+                            <p class="md-raised btn1">SHI</p>
+                    </div>
+                    <div flex ng-click="adicionar_tecla('a')" class="card-teclado" click-temporal >
+                            <p class="md-raised btn1">A</p>
+                    </div>
+                    <div flex ng-click="adicionar_tecla('e')" class="card-teclado"  click-temporal>
+                            <p class="md-raised btn1">E</p>
+                    </div>
+                </div>
+                <div flex="50" class="coluna-teclado">
+                    <div flex ng-click="adicionar_tecla('i')" class="card-teclado"  click-temporal>
+                            <p class="md-raised btn1">I</p>
+                    </div>
+                    <div flex ng-click="adicionar_tecla('o')" class="card-teclado"  click-temporal >
+                            <p class="md-raised btn1">O</p>
+                    </div>
+                    <div flex ng-click="adicionar_tecla('u')" class="card-teclado" click-temporal >
+                            <p class="md-raised btn1">U</p>
+                    </div>
+                </div>
+        </div>
+        <div layout="row" id="numero" ng-hide="dash" style="height: 604px;" ng-if="numero">
+            <div flex=10 class="coluna-teclado">
+                <div flex ng-click="adicionar_tecla('0')" class="card-teclado"  click-temporal style="height: 602px;">
+                    <p class="md-raised btn1">0</p>
+                </div>
+            </div>
+            <div flex=30 class="coluna-teclado">
+                <div flex ng-click="adicionar_tecla('1')" class="card-teclado"  click-temporal>
+                        <p class="md-raised btn1">1</p>
+                </div>
+                <div flex ng-click="adicionar_tecla('2')" class="card-teclado" click-temporal >
+                        <p class="md-raised btn1">2</p>
+                </div>
+                <div flex ng-click="adicionar_tecla('3')" class="card-teclado"  click-temporal>
+                        <p class="md-raised btn1">3</p>
+                </div>
+            </div>
+            <div flex=30 class="coluna-teclado">
+                <div flex ng-click="adicionar_tecla('4')" class="card-teclado"  click-temporal>
+                        <p class="md-raised btn1">4</p>
+                </div>
+                <div flex ng-click="adicionar_tecla('5')" class="card-teclado" click-temporal >
+                        <p class="md-raised btn1">5</p>
+                </div>
+                <div flex ng-click="adicionar_tecla('6')" class="card-teclado"  click-temporal>
+                        <p class="md-raised btn1">6</p>
+                </div>
+            </div>
+            <div flex=30 class="coluna-teclado">
+                <div flex ng-click="adicionar_tecla('7')" class="card-teclado"  click-temporal>
+                        <p class="md-raised btn1">7</p>
+                </div>
+                <div flex ng-click="adicionar_tecla('8')" class="card-teclado" click-temporal >
+                        <p class="md-raised btn1">8</p>
+                </div>
+                <div flex ng-click="adicionar_tecla('9')" class="card-teclado"  click-temporal>
+                        <p class="md-raised btn1">9</p>
+                </div>
+            </div>
+        </div>
+        <div layout="row" id="pontuacao" ng-hide="dash" style="height: 604px;" ng-if="pontuacao">
+            <div flex class="coluna-teclado">
+                <div flex ng-click="adicionar_tecla('?')" class="card-teclado"  click-temporal>
+                        <p class="md-raised btn1">?</p>
+                </div>
+                <div flex ng-click="adicionar_tecla('!')" class="card-teclado" click-temporal >
+                        <p class="md-raised btn1">!</p>
+                </div>
+                <div flex ng-click="adicionar_tecla('?!')" class="card-teclado"  click-temporal>
+                        <p class="md-raised btn1">?!</p>
+                </div>
+            </div>
+            <div flex class="coluna-teclado">
+                <div flex ng-click="til()" class="card-teclado"  click-temporal>
+                        <p class="md-raised btn1">~</p>
+                </div>
+                <div flex ng-click="circunflexo()" class="card-teclado"  click-temporal>
+                        <p class="md-raised btn1">^</p>
+                </div>
+                <div flex ng-click="agudo()" class="card-teclado"  click-temporal>
+                        <p class="md-raised btn1">'</p>
+                </div>
+            </div>
+            <div flex class="coluna-teclado">
+                <div flex ng-click="adicionar_tecla(',')" class="card-teclado"  click-temporal>
+                        <p class="md-raised btn1">,</p>
+                </div>
+                <div flex ng-click="adicionar_tecla('.')" class="card-teclado" click-temporal >
+                        <p class="md-raised btn1">.</p>
+                </div>
+                <div flex ng-click="adicionar_tecla(';')" class="card-teclado"  click-temporal>
+                        <p class="md-raised btn1">;</p>
+                </div>
+            </div>
+        </div>
+        <div layout="row" id="acento_agudo" ng-hide="dash" style="height: 604px;" ng-if="acento_agudo">
+                <div flex="50" class="coluna-teclado">
+                    <div flex class="card-teclado"  click-temporal>
+                            <p class="md-raised btn1">SHI</p>
+                    </div>
+                    <div flex ng-click="adicionar_tecla('á')" class="card-teclado" click-temporal >
+                            <p class="md-raised btn1">á</p>
+                    </div>
+                    <div flex ng-click="adicionar_tecla('é')" class="card-teclado"  click-temporal>
+                            <p class="md-raised btn1">é</p>
+                    </div>
+                </div>
+                <div flex="50" class="coluna-teclado">
+                    <div flex ng-click="adicionar_tecla('í')" class="card-teclado"  click-temporal>
+                            <p class="md-raised btn1">í</p>
+                    </div>
+                    <div flex ng-click="adicionar_tecla('ó')" class="card-teclado"  click-temporal >
+                            <p class="md-raised btn1">ó</p>
+                    </div>
+                    <div flex ng-click="adicionar_tecla('ú')" class="card-teclado" click-temporal >
+                            <p class="md-raised btn1">ú</p>
+                    </div>
+                </div>
+        </div>
+        <div layout="row" id="acento_circunflexo" ng-hide="dash" style="height: 604px;" ng-if="acento_circunflexo">
+                <div flex="50" class="coluna-teclado">
+                    <div flex class="card-teclado"  click-temporal>
+                            <p class="md-raised btn1">SHI</p>
+                    </div>
+                    <div flex ng-click="adicionar_tecla('â')" class="card-teclado" click-temporal >
+                            <p class="md-raised btn1">â</p>
+                    </div>
+                    <div flex ng-click="adicionar_tecla('ô')" class="card-teclado"  click-temporal>
+                            <p class="md-raised btn1">ô</p>
+                    </div>
+                </div>
+                <div flex="50" class="coluna-teclado">
+                    <div flex ng-click="adicionar_tecla('ê')" class="card-teclado"  click-temporal>
+                            <p class="md-raised btn1">ê</p>
+                    </div>
+                </div>
+        </div>
+        <div layout="row" id="acento_til" ng-hide="dash" style="height: 604px;" ng-if="acento_til">
+                <div flex class="coluna-teclado">
+                    <div flex class="card-teclado"  click-temporal>
+                            <p class="md-raised btn1">SHI</p>
+                    </div>
+                    <div flex ng-click="adicionar_tecla('õ')" class="card-teclado" click-temporal >
+                            <p class="md-raised btn1">õ</p>
+                    </div>
+                    <div flex ng-click="adicionar_tecla('ã')" class="card-teclado"  click-temporal>
+                            <p class="md-raised btn1">ã</p>
+                    </div>
+                </div>
+        </div>
+        <div flex class="card-teclado">
+            <p class="md-raised btn1" click-temporal ng-click="add_palavra(palavra.texto)" ng-repeat="palavra in palavras">{{palavra.texto}}</p>
+        </div>
+        <div flex class="card-teclado" click-temporal>
+            <p class="md-raised btn1" click-temporal >{{frase_total}}</p>
+        </div>
+    </div>
+</md-content>

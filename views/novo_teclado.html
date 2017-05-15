@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div class="bs-example" data-example-id="bordered-table">
+      <table class="table table-bordered table-responsive table-hover">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Coluna 1</th>
+            <th>Coluna 2</th>
+            <th>Coluna 3</th>
+            <th>Coluna 4</th>
+            <th>Coluna 5</th>
+            <th>Coluna 6</th>
+            <th>Coluna 7</th>
+            <th>Coluna 8</th>
+            <th>Coluna 9</th>
+            <th>Coluna 10</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Linha 1</th>
+            <td linha=1 coluna=1 class="col-md-1">Q</td>
+            <td linha=1 coluna=2 class="col-md-1">W</td>
+            <td linha=1 coluna=3 class="col-md-1">E</td>
+            <td linha=1 coluna=4 class="col-md-1">R</td>
+            <td linha=1 coluna=5 class="col-md-1">T</td>
+            <td linha=1 coluna=6 class="col-md-1">Y</td>
+            <td linha=1 coluna=7 class="col-md-1">U</td>
+            <td linha=1 coluna=8 class="col-md-1">I</td>
+            <td linha=1 coluna=9 class="col-md-1">O</td>
+            <td linha=1 coluna=10 class="col-md-1">P</td>
+          </tr>
+          <tr>
+            <th scope="row">Linha 2</th>
+            <td linha=2 coluna=1 class="col-md-1">A</td>
+            <td linha=2 coluna=2 class="col-md-1">S</td>
+            <td linha=2 coluna=3 class="col-md-1">D</td>
+            <td linha=2 coluna=4 class="col-md-1">F</td>
+            <td linha=2 coluna=5 class="col-md-1">G</td>
+            <td linha=2 coluna=6 class="col-md-1">H</td>
+            <td linha=2 coluna=7 class="col-md-1">J</td>
+            <td linha=2 coluna=8 class="col-md-1">K</td>
+            <td linha=2 coluna=9 class="col-md-1">L</td>
+            <td linha=2 coluna=10 class="col-md-1">Ç</td>
+            </tr>
+            <tr>
+              <th scope="row">Linha 3</th>
+              <td linha=3 coluna=1 class="col-md-1">Z</td>
+              <td linha=3 coluna=2 class="col-md-1">X</td>
+              <td linha=3 coluna=3 class="col-md-1">C</td>
+              <td linha=3 coluna=4 class="col-md-1">V</td>
+              <td linha=3 coluna=5 class="col-md-1">B</td>
+              <td linha=3 coluna=6 class="col-md-1">N</td>
+              <td linha=3 coluna=7 class="col-md-1">M</td>
+              <td linha=3 coluna=8 class="col-md-1">,</td>
+              <td linha=3 coluna=9 class="col-md-1">.</td>
+              <td linha=3 coluna=10 class="col-md-1">?</td>
+            </tr> </tbody>
+          </table> </div>
+
+      <div class="col-md-4">
+        <div class="row"  style="padding: 20px;">
+          <label> Linha</label>
+          <span class="input-group-btn">
+              <button type="button" class="btn btn-info btn-number col-md-12" click-temporal ng-click="pula_linha('mais')">
+                  <span class="glyphicon glyphicon-plus"></span>
+              </button>
+          </span>
+          <input type="text" class="form-control input-number col-md-12" value="{{linha}}">
+          <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number col-md-12" click-temporal ng-click="pula_linha('menos')" >
+                <span class="glyphicon glyphicon-minus"></span>
+              </button>
+          </span>
+      </div>
+      </div>
+      <div class="col-md-4">
+        <div class="row" style="padding: 20px;">
+          <label> Coluna</label>
+          <span class="input-group-btn">
+              <button type="button" class="btn btn-info btn-number col-md-12" click-temporal ng-click="pula_coluna('mais')">
+                  <span class="glyphicon glyphicon-plus"></span>
+              </button>
+          </span>
+          <input type="text" class="form-control input-number col-md-12" value="{{coluna}}">
+          <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number col-md-12" click-temporal ng-click="pula_coluna('menos')" >
+                <span class="glyphicon glyphicon-minus"></span>
+              </button>
+          </span>
+      </div>
+      </div>
+      <div class="col-md-4">
+        <label> <br></label>
+        <div class="row" style="padding: 20px;">
+          <button type="button" class="col-md-12 btn btn-primary" click-temporal ng-click="adicionar_tecla(1)">
+              <i class="material-icons">space_bar</i>
+          </button>
+          <button type="button" class="col-md-12 btn btn-danger"  style="margin-top:10px; height:75px;" click-temporal ng-click="backspace()">
+              <i class="material-icons">backspace</i>
+          </button>
+          <button type="button" class="col-md-12 btn btn-success"  style="margin-top:10px;" click-temporal ng-click="adicionar_tecla()">
+            OK
+          </button>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <p>{{frase_total}}</p>
+
+      </div>
+
+  </body>
+</html>

@@ -1,0 +1,12 @@
+-- Describe OCORRENCIA
+CREATE TABLE "ocorrencia" (
+    "primaria_id" INTEGER NOT NULL,
+    "secundaria_id" INTEGER NOT NULL,
+    "data" DATETIME NOT NULL,
+     FOREIGN KEY(primaria_id) REFERENCES palavra(id),
+     FOREIGN KEY(secundaria_id) REFERENCES palavra(id)
+);
+
+
+-- Describe CADEIA
+CREATE VIEW cadeia AS SELECT  primaria_id, secundaria_id, count(primaria_id) AS ocorrencias FROM ocorrencia GROUP BY primaria_id, secundaria_id;

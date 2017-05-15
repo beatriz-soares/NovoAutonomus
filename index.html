@@ -1,0 +1,71 @@
+<html ng-app="cdg">
+<head>
+	<title>Autonumus</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="static/css/auton.css">
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/font-awesome.css">
+	<link href="bootstrap/css/materialdesignicons.min.css" media="all" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="node_modules/angular-material/angular-material.css">
+	<link href="node_modules/angular-carousel/dist/angular-carousel.css" rel="stylesheet" type="text/css" />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+	<!-- jQuery -->
+	<script>window.$ = window.jQuery = require('jquery');</script>
+
+	<!-- Bootstrap -->
+	<!-- <script src="bootstrap/js/bootstrap.js"></script> -->
+	<!-- Angular -->
+	<script src="node_modules/angular/angular.js"></script>
+	<script src="node_modules/angular-touch/angular-touch.js"></script>
+	<script src="node_modules/angular-route/angular-route.js"></script>
+	<script src="node_modules/angular-animate/angular-animate.js"></script>
+	<script src="node_modules/angular-aria/angular-aria.js"></script>
+	<script src="node_modules/angular-material/angular-material.js"></script>
+	<script src="node_modules/angular-carousel/dist/angular-carousel.js"></script>
+	<script src="node_modules/angular-timer/dist/angular-timer.min.js"></script>
+	<!-- Angular - Pagination -->
+	<script src="node_modules/angular-utils-pagination/dirPagination.js"></script>
+
+	<!-- App -->
+	<script src="app.js"></script>
+
+	<!-- Controllers -->
+	<script src="controllers/frasesController.js"></script>
+	<script src="controllers/falaController.js"></script>
+	<script src="controllers/IRController.js"></script>
+	<script src="controllers/dashboardController.js"></script>
+	<script src="controllers/controleRemotoController.js"></script>
+	<script src="controllers/tecladoController.js"></script>
+
+
+	<!-- Services -->
+	<script src="services/dbService.js"></script>
+	<!-- init Scripts -->
+	<!-- end scripts -->
+	</head>
+	<body>
+	<div id="cursor"></div>
+		<!-- Onde será carregada a view -->
+		<div ng-view=""></div>
+		<!-- Rodapé -->
+		<script>
+		var $mouseX = 0, $mouseY = 0;
+		var $xp = 0, $yp =0;
+
+		$(document).mousemove(function(e){
+			$mouseX = e.pageX - $(document).scrollLeft();
+			$mouseY = e.pageY - $(document).scrollTop();
+		});
+
+		var $loop = setInterval(function(){
+		// change 12 to alter damping higher is slower
+		$xp += (($mouseX - $xp)/6);
+		$yp += (($mouseY - $yp)/6);
+			$("#cursor").css({left:($xp - 25) +'px', top: ($yp - 25) +'px'});
+		}, 30);
+		$("*").css({cursor: 'none'});
+
+		</script>
+	</body>
+</html>

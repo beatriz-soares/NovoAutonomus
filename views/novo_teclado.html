@@ -25,94 +25,100 @@
         <tbody>
           <tr>
             <th scope="row">Linha 1</th>
-            <td linha=1 coluna=1 class="col-md-1">Q</td>
-            <td linha=1 coluna=2 class="col-md-1">W</td>
-            <td linha=1 coluna=3 class="col-md-1">E</td>
-            <td linha=1 coluna=4 class="col-md-1">R</td>
-            <td linha=1 coluna=5 class="col-md-1">T</td>
-            <td linha=1 coluna=6 class="col-md-1">Y</td>
-            <td linha=1 coluna=7 class="col-md-1">U</td>
-            <td linha=1 coluna=8 class="col-md-1">I</td>
-            <td linha=1 coluna=9 class="col-md-1">O</td>
-            <td linha=1 coluna=10 class="col-md-1">P</td>
+            <td linha=1 coluna=1 class="col-md-1">{{alfabeto[0][0]}}</td>
+            <td linha=1 coluna=2 class="col-md-1">{{alfabeto[0][1]}}</td>
+            <td linha=1 coluna=3 class="col-md-1">{{alfabeto[0][2]}}</td>
+            <td linha=1 coluna=4 class="col-md-1">{{alfabeto[0][3]}}</td>
+            <td linha=1 coluna=5 class="col-md-1">{{alfabeto[0][4]}}</td>
+            <td linha=1 coluna=6 class="col-md-1">{{alfabeto[0][5]}}</td>
+            <td linha=1 coluna=7 class="col-md-1">{{alfabeto[0][6]}}</td>
+            <td linha=1 coluna=8 class="col-md-1">{{alfabeto[0][7]}}</td>
+            <td linha=1 coluna=9 class="col-md-1">{{alfabeto[0][8]}}</td>
+            <td linha=1 coluna=10 class="col-md-1">{{alfabeto[0][9]}}</td>
           </tr>
           <tr>
             <th scope="row">Linha 2</th>
-            <td linha=2 coluna=1 class="col-md-1">A</td>
-            <td linha=2 coluna=2 class="col-md-1">S</td>
-            <td linha=2 coluna=3 class="col-md-1">D</td>
-            <td linha=2 coluna=4 class="col-md-1">F</td>
-            <td linha=2 coluna=5 class="col-md-1">G</td>
-            <td linha=2 coluna=6 class="col-md-1">H</td>
-            <td linha=2 coluna=7 class="col-md-1">J</td>
-            <td linha=2 coluna=8 class="col-md-1">K</td>
-            <td linha=2 coluna=9 class="col-md-1">L</td>
-            <td linha=2 coluna=10 class="col-md-1">Ç</td>
+            <td linha=2 coluna=1 class="col-md-1">{{alfabeto[1][0]}}</td>
+            <td linha=2 coluna=2 class="col-md-1">{{alfabeto[1][1]}}</td>
+            <td linha=2 coluna=3 class="col-md-1">{{alfabeto[1][2]}}</td>
+            <td linha=2 coluna=4 class="col-md-1">{{alfabeto[1][3]}}</td>
+            <td linha=2 coluna=5 class="col-md-1">{{alfabeto[1][4]}}</td>
+            <td linha=2 coluna=6 class="col-md-1">{{alfabeto[1][5]}}</td>
+            <td linha=2 coluna=7 class="col-md-1">{{alfabeto[1][6]}}</td>
+            <td linha=2 coluna=8 class="col-md-1">{{alfabeto[1][7]}}</td>
+            <td linha=2 coluna=9 class="col-md-1">{{alfabeto[1][8]}}</td>
+            <td linha=2 coluna=10 class="col-md-1">{{alfabeto[1][9]}}</td>
             </tr>
             <tr>
               <th scope="row">Linha 3</th>
-              <td linha=3 coluna=1 class="col-md-1">Z</td>
-              <td linha=3 coluna=2 class="col-md-1">X</td>
-              <td linha=3 coluna=3 class="col-md-1">C</td>
-              <td linha=3 coluna=4 class="col-md-1">V</td>
-              <td linha=3 coluna=5 class="col-md-1">B</td>
-              <td linha=3 coluna=6 class="col-md-1">N</td>
-              <td linha=3 coluna=7 class="col-md-1">M</td>
-              <td linha=3 coluna=8 class="col-md-1">,</td>
-              <td linha=3 coluna=9 class="col-md-1">.</td>
-              <td linha=3 coluna=10 class="col-md-1">?</td>
+              <td linha=3 coluna=1 class="col-md-1">{{alfabeto[2][0]}}</td>
+              <td linha=3 coluna=2 class="col-md-1">{{alfabeto[2][1]}}</td>
+              <td linha=3 coluna=3 class="col-md-1">{{alfabeto[2][2]}}</td>
+              <td linha=3 coluna=4 class="col-md-1">{{alfabeto[2][3]}}</td>
+              <td linha=3 coluna=5 class="col-md-1">{{alfabeto[2][4]}}</td>
+              <td linha=3 coluna=6 class="col-md-1">{{alfabeto[2][5]}}</td>
+              <td linha=3 coluna=7 class="col-md-1">{{alfabeto[2][6]}}</td>
+              <td linha=3 coluna=8 class="col-md-1">{{alfabeto[2][7]}}</td>
+              <td linha=3 coluna=9 class="col-md-1">{{alfabeto[2][8]}}</td>
+              <td linha=3 coluna=10 class="col-md-1">{{alfabeto[2][9]}}</td>
             </tr> </tbody>
           </table> </div>
 
-      <div class="col-md-4">
+      <div class="col-md-3">
         <div class="row"  style="padding: 20px;">
           <label> Linha</label>
           <span class="input-group-btn">
-              <button type="button" class="btn btn-info btn-number col-md-12" click-temporal ng-click="pula_linha('mais')">
-                  <span class="glyphicon glyphicon-plus"></span>
+              <button type="button" class="btn btn-info btn-number col-md-12" click-temporal ng-click="pula_linha('menos')">
+                  <span class="glyphicon glyphicon-arrow-up"></span>
               </button>
           </span>
+          <br>
           <input type="text" class="form-control input-number col-md-12" value="{{linha}}">
           <span class="input-group-btn">
-              <button type="button" class="btn btn-default btn-number col-md-12" click-temporal ng-click="pula_linha('menos')" >
-                <span class="glyphicon glyphicon-minus"></span>
+              <button type="button" class="btn btn-info btn-number col-md-12" click-temporal ng-click="pula_linha('mais')" >
+                <span class="glyphicon glyphicon-arrow-down"></span>
               </button>
           </span>
       </div>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-6">
         <div class="row" style="padding: 20px;">
-          <label> Coluna</label>
-          <span class="input-group-btn">
-              <button type="button" class="btn btn-info btn-number col-md-12" click-temporal ng-click="pula_coluna('mais')">
-                  <span class="glyphicon glyphicon-plus"></span>
+          <label class="col-md-12"> Coluna</label>
+              <button type="button" class="btn btn-info btn-number col-md-4 coluna" click-temporal ng-click="pula_coluna('menos')">
+                  <i class="glyphicon glyphicon-arrow-left"></i>
               </button>
-          </span>
-          <input type="text" class="form-control input-number col-md-12" value="{{coluna}}">
-          <span class="input-group-btn">
-              <button type="button" class="btn btn-default btn-number col-md-12" click-temporal ng-click="pula_coluna('menos')" >
-                <span class="glyphicon glyphicon-minus"></span>
+              <div class="col-md-4">
+                <input type="text" class="form-control input-number coluna" value="{{coluna}}">
+              </div>
+              <button type="button" class="btn btn-info btn-number col-md-4 coluna" click-temporal ng-click="pula_coluna('mais')" >
+                <i class="glyphicon glyphicon-arrow-right"></i>
               </button>
-          </span>
       </div>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-2">
         <label> <br></label>
         <div class="row" style="padding: 20px;">
-          <button type="button" class="col-md-12 btn btn-primary" click-temporal ng-click="adicionar_tecla(1)">
+          <button type="button" class="col-md-12 btn btn-success" click-temporal ng-click="adicionar_tecla()">
+            OK
+          </button>
+          <button type="button" class="col-md-12 btn btn-warning" click-temporal ng-click="adicionar_tecla('enter')" style="margin-top:10px; height:75px;">
+              <span class="">Enter</i>
+          </button>
+        </div>
+      </div>
+      <div class="col-md-1">
+        <label> <br></label>
+        <div class="row" style="padding: 20px;">
+          <button type="button" class="col-md-12 btn btn-primary" click-temporal ng-click="adicionar_tecla(' ')">
               <i class="material-icons">space_bar</i>
           </button>
           <button type="button" class="col-md-12 btn btn-danger"  style="margin-top:10px; height:75px;" click-temporal ng-click="backspace()">
               <i class="material-icons">backspace</i>
           </button>
-          <button type="button" class="col-md-12 btn btn-success"  style="margin-top:10px;" click-temporal ng-click="adicionar_tecla()">
-            OK
-          </button>
         </div>
       </div>
       <div class="col-md-12">
-        <p>{{frase_total}}</p>
-
+        <textarea rows="6" style="width: 100%; font-size:30px;">{{frase_total}}</textarea>
       </div>
 
   </body>

@@ -63,7 +63,26 @@
               <td linha=3 coluna=10 class="col-md-1">{{alfabeto[2][9]}}</td>
             </tr> </tbody>
           </table> </div>
-
+      <div class="col-md-12 btn-toolbar" role="toolbar">
+        <button type="button" class="btn btn-info btn-group col-md-2" click-temporal ng-click="zerar('maiu')">
+            <span class="glyphicon glyphicon-resize-full"> Maiúsculas</span>
+        </button>
+        <button type="button" class="btn btn-info btn-group col-md-2" click-temporal ng-click="zerar('minu')">
+            <span class="glyphicon glyphicon-resize-small"> Minúsculas</span>
+        </button>
+        <button type="button" class="btn btn-info btn-group col-md-2" click-temporal ng-click="zerar('ponto')">
+            <span class="glyphicon glyphicon-option-horizontal"> Pontuação</span>
+        </button>
+        <button type="button" class="btn btn-info btn-group col-md-2" click-temporal ng-click="zerar('acento')">
+            <span class="glyphicon glyphicon-text-background"> Acentos</span>
+        </button>
+        <button type="button" class="btn btn-info btn-group col-md-2" click-temporal ng-click="zerar('numero')">
+            <span class="glyphicon glyphicon-sound-5-1"> Números</span>
+        </button>
+        <button type="button" class="btn btn-info btn-group col-md-1 enter" click-temporal ng-click="adicionar_tecla('enter')">
+            <span> Enter</span>
+        </button>
+      </div>
       <div class="col-md-3">
         <div class="row"  style="padding: 20px;">
           <label> Linha</label>
@@ -81,7 +100,7 @@
           </span>
       </div>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-5">
         <div class="row" style="padding: 20px;">
           <label class="col-md-12"> Coluna</label>
               <button type="button" class="btn btn-info btn-number col-md-4 coluna" click-temporal ng-click="pula_coluna('menos')">
@@ -98,21 +117,18 @@
       <div class="col-md-2">
         <label> <br></label>
         <div class="row" style="padding: 20px;">
-          <button type="button" class="col-md-12 btn btn-success" click-temporal ng-click="adicionar_tecla()">
+          <button type="button" class="col-md-12 btn btn-success menu ok" click-temporal ng-click="adicionar_tecla()">
             OK
-          </button>
-          <button type="button" class="col-md-12 btn btn-warning" click-temporal ng-click="adicionar_tecla('enter')" style="margin-top:10px; height:75px;">
-              <span class="">Enter</i>
           </button>
         </div>
       </div>
-      <div class="col-md-1">
+      <div class="col-md-2">
         <label> <br></label>
         <div class="row" style="padding: 20px;">
-          <button type="button" class="col-md-12 btn btn-primary" click-temporal ng-click="adicionar_tecla(' ')">
+          <button type="button" class="col-md-12 btn btn-primary menu" click-temporal ng-click="adicionar_tecla(' ')">
               <i class="material-icons">space_bar</i>
           </button>
-          <button type="button" class="col-md-12 btn btn-danger"  style="margin-top:10px; height:75px;" click-temporal ng-click="backspace()">
+          <button type="button" class="col-md-12 btn btn-danger menu"  style="margin-top:10px; height:75px;" click-temporal ng-click="backspace()">
               <i class="material-icons">backspace</i>
           </button>
         </div>

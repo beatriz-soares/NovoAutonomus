@@ -14,7 +14,7 @@ app.controller("tecladoController", function($scope, $location, dbService){
     // Retirar bug
     // dbService.runAsync(`SELECT * FROM ocorrencias`, function(){});
 
-    $("td[linha=1][coluna=1]").css("color", "red");
+    $("td[linha=1][coluna=1]").css("background-color", "#00b3b3");
 
     function pesquisar() {
       // Retira os sinais
@@ -95,25 +95,25 @@ app.controller("tecladoController", function($scope, $location, dbService){
     }
 
     $scope.pula_linha = function(muda) {
-      $("td").css("color", "black");
+      $("td").css("background-color", "#EFEFEF");
        if (muda == 'mais' && $scope.linha<3){
         $scope.linha += 1;
       }
       else if (muda == 'menos' && $scope.linha>1) {
         $scope.linha -= 1;
       }
-      var a = $("td[linha="+ $scope.linha + "][coluna="+ $scope.coluna + "]").css("color", "red");
+      var a = $("td[linha="+ $scope.linha + "][coluna="+ $scope.coluna + "]").css("background-color", "#00b3b3");
    };
 
    $scope.pula_coluna = function(muda) {
-     $("td").css("color", "black");
+     $("td").css("background-color", "#EFEFEF");
       if (muda == 'mais' && $scope.coluna<10){
        $scope.coluna += 1;
      }
      else if (muda == 'menos' && $scope.coluna>1) {
        $scope.coluna -= 1;
      }
-     var a = $("td[linha="+ $scope.linha + "][coluna="+ $scope.coluna + "]").css("color", "red");
+     var a = $("td[linha="+ $scope.linha + "][coluna="+ $scope.coluna + "]").css("background-color", "#00b3b3");
   };
 
   $scope.adicionar_tecla = function(a) {

@@ -292,10 +292,20 @@ td{
   font-size: 50px;
   text-align: center;
 }
-button, .btn{
+.btn-toolbar{
+}
+.btn-number, .menu{
   padding: 20px;
   font-size: 30px;
   height: 160px !important;
+}
+.btn-group{
+  font-size: 25px;
+  height: 115px;
+  background-color:  #476b6b;
+}
+.enter{
+  width: 14%;
 }
 input[type="text"]{
   font-size: 35px;
@@ -309,7 +319,6 @@ input[type="text"]{
 .coluna{
   height: 320px !important;
 }
-p{
-  font-size: 30px;
-  border: 1px solid gray;
+.ok{
+  height: 320px !important;
 }

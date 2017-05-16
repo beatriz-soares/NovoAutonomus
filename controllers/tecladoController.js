@@ -16,6 +16,32 @@ app.controller("tecladoController", function($scope, $location, dbService){
 
     $("td[linha=1][coluna=1]").css("color", "red");
 
+    function inserir_texto(titulo, texto, callback) {
+
+      var q1 = `SELECT * FROM texto WHERE titulo = '${titulo}'`;
+
+      dbService.runAsync(q1, function(data){
+        var query = "";
+        if (data.length > 0){
+          query = `UPDATE texto SET texto = '${texto}', data = '${new Date().toISOString()}' WHERE titulo = '${titulo}'`;
+        } else {
+          query = `INSERT INTO texto (texto, data, titulo) VALUES ('${texto}', '${new Date().toISOString()}', '${titulo}')`;
+        }
+
+        dbService.runAsync(query, function(data){
+          callback(data);
+        });
+      });
+  	}
+
+
+
+    dbService.runAsync("SELECT * FROM texto WHERE titulo = 'livro'", function(data){
+      if (data.length>0){
+        $scope.frase_total = data[0].texto;
+      }
+    });
+
     function pesquisar() {
       // Retira os sinais
       var split = $scope.frase_total.toLowerCase().replace(/[\'"<>!@#$%&*().,:;\/=?\[\]\\\+\|]+|[-+\s]/g, ' ').replace(/\s+/g, ' ').split(' ');
@@ -139,7 +165,11 @@ app.controller("tecladoController", function($scope, $location, dbService){
       }
       });
       $scope.voltar();
-    }
+
+      inserir_texto('livro', $scope.frase_total, function(data){
+        console.log(data);
+      });
+  }
 
   $scope.backspace = function() {
     $scope.frase_total = $scope.frase_total.substring(0,$scope.frase_total.length - 1);

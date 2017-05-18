@@ -6,16 +6,16 @@ app.controller("tecladoController", function($scope, $location, dbService){
     $scope.palavras = [""];
     $scope.linha = 1;
     $scope.coluna = 1;
-    $scope.alfabeto = [['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
-                      ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'Ç'],
-                      ['Z', 'X', 'C', 'V', 'B', 'N', 'M', ',', '.', '?']];
+    $scope.alfabeto = [['A', 'B', 'C', 'D', 'E', 'F', 'G'],
+                      ['H', 'I', 'J', 'K', 'L', 'M', 'N'],
+                      ['O', 'P', 'Q', 'R', 'S', 'T', 'U'],
+                      ['V', 'W', 'X', 'Y', 'Z', 'Ç', ' '],
+                      ['1', '2', '3', '4', '5', '6', '7'],
+                      ['8', '9', '0', '. ', ', ', '? ', '! ']];
 
 
     // Retirar bug
     // dbService.runAsync(`SELECT * FROM ocorrencias`, function(){});
-
-    $("td[linha=1][coluna=1]").css("background-color", "#00b3b3");
-
     function pesquisar() {
       // Retira os sinais
       var split = $scope.frase_total.toLowerCase().replace(/[\'"<>!@#$%&*().,:;\/=?\[\]\\\+\|]+|[-+\s]/g, ' ').replace(/\s+/g, ' ').split(' ');
@@ -51,31 +51,29 @@ app.controller("tecladoController", function($scope, $location, dbService){
 
     $scope.zerar = function(atual) {
         if (atual == "maiu"){
-          $scope.alfabeto = [['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
-                            ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'Ç'],
-                            ['Z', 'X', 'C', 'V', 'B', 'N', 'M', ',', '.', '?']];
+          $scope.alfabeto = [['A', 'B', 'C', 'D', 'E', 'F', 'G'],
+                            ['H', 'I', 'J', 'K', 'L', 'M', 'N'],
+                            ['O', 'P', 'Q', 'R', 'S', 'T', 'U'],
+                            ['V', 'W', 'X', 'Y', 'Z', 'Ç', ' '],
+                            ['1', '2', '3', '4', '5', '6', '7'],
+                            ['8', '9', '0', '. ', ', ', '? ', '! ']];
         }
         else if (atual == "minu"){
-          $scope.alfabeto = [['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
-                            ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'ç'],
-                            ['z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '?']];
+          $scope.alfabeto = [['a', 'b', 'c', 'd', 'e', 'f', 'g'],
+                            ['h', 'i', 'j', 'k', 'l', 'm', 'n'],
+                            ['o', 'p', 'q', 'r', 's', 't', 'u'],
+                            ['v', 'w', 'x', 'y', 'z', 'ç', ' '],
+                            ['1', '2', '3', '4', '5', '6', '7'],
+                            ['8', '9', '0', '. ', ', ', '? ', '! ']];
         }
         else if (atual == "acento"){
-          $scope.alfabeto = [['á', 'à', 'ã', 'â', 'À', 'Á', 'Ã', 'Â', 'É', 'é'],
-                            ['í', 'Í', 'ú', 'Ú', 'Ó', 'ó', 'õ', 'Õ', 'ô', 'Õ'],
-                            ['Ê', 'ê', 'c', 'v', 'b', 'n', 'm', ',', '.', '?']];
+          $scope.alfabeto = [['á', 'à', 'ã', 'â', 'À', 'Á', 'Ã'],
+                            ['Â', 'É', 'é', 'í', 'Í', 'ú', 'Ú'],
+                            ['Ó', 'ó', 'õ', 'Õ', 'ô', 'Õ', 'Ê'],
+                            ['ê', '', '', '', '', '', ' '],
+                            ['1', '2', '3', '4', '5', '6', '7'],
+                            ['8', '9', '0', '. ', ', ', '? ', '! ']];
         }
-        else if (atual == "numero"){
-          $scope.alfabeto = [['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'],
-                            ['+', '/', '*', '$', '%', '(', ')', 'º', 'ª', '='],
-                            ['', '', '', '', '', '', '', '', '', '']];
-        }
-        else if (atual == "ponto"){
-          $scope.alfabeto = [['.', ',', ':', ';', '-', '_', '/', '"', "'", ''],
-                            ['?', '!', '*', '$', '%', '(', ')', 'º', 'ª', ''],
-                            ['', '', '', '', '', '', '', '', '', '']];
-        }
-
     }
 
     $scope.voltar = function() {
@@ -95,33 +93,25 @@ app.controller("tecladoController", function($scope, $location, dbService){
     }
 
     $scope.pula_linha = function(muda) {
-      $("td").css("background-color", "#EFEFEF");
-       if (muda == 'mais' && $scope.linha<3){
-        $scope.linha += 1;
-      }
-      else if (muda == 'menos' && $scope.linha>1) {
-        $scope.linha -= 1;
-      }
-      var a = $("td[linha="+ $scope.linha + "][coluna="+ $scope.coluna + "]").css("background-color", "#00b3b3");
-   };
+        $scope.linha=muda;
+        $("td").css("color", "black");
+        $("th[scope='row']").removeClass("ativo");
+        $("th[linha="+ muda + "]").addClass("ativo");
+        $("td[linha="+ muda + "][coluna="+$scope.coluna+"]").css("color", "red");
+
+     };
 
    $scope.pula_coluna = function(muda) {
-     $("td").css("background-color", "#EFEFEF");
-      if (muda == 'mais' && $scope.coluna<10){
-       $scope.coluna += 1;
-     }
-     else if (muda == 'menos' && $scope.coluna>1) {
-       $scope.coluna -= 1;
-     }
-     var a = $("td[linha="+ $scope.linha + "][coluna="+ $scope.coluna + "]").css("background-color", "#00b3b3");
-  };
+         $("td").css("color", "black");
+        $("th[data-id='coluna']").removeClass("ativo");
+        $("th[coluna="+ muda + "]").addClass("ativo");
+        $("td[linha="+ $scope.linha + "][coluna="+muda+"]").css("color", "red");
+        $scope.coluna=muda;
+    };
 
   $scope.adicionar_tecla = function(a) {
 
-    if (a == ' '){
-      var tecla = " ";
-    }
-    else if (a == 'enter'){
+    if (a == 'enter'){
       var tecla = "\n";
     }
     else{

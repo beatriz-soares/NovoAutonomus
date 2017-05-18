@@ -10,21 +10,18 @@
         <thead>
           <tr>
             <th></th>
-            <th>Coluna 1</th>
-            <th>Coluna 2</th>
-            <th>Coluna 3</th>
-            <th>Coluna 4</th>
-            <th>Coluna 5</th>
-            <th>Coluna 6</th>
-            <th>Coluna 7</th>
-            <th>Coluna 8</th>
-            <th>Coluna 9</th>
-            <th>Coluna 10</th>
+            <th click-temporal ng-click="pula_coluna(1)" coluna=1 data-id="coluna" class="ativo">Coluna 1</th>
+            <th click-temporal ng-click="pula_coluna(2)" coluna=2 data-id="coluna">Coluna 2</th>
+            <th click-temporal ng-click="pula_coluna(3)" coluna=3 data-id="coluna">Coluna 3</th>
+            <th click-temporal ng-click="pula_coluna(4)" coluna=4 data-id="coluna">Coluna 4</th>
+            <th click-temporal ng-click="pula_coluna(5)" coluna=5 data-id="coluna">Coluna 5</th>
+            <th click-temporal ng-click="pula_coluna(6)" coluna=6 data-id="coluna">Coluna 6</th>
+            <th click-temporal ng-click="pula_coluna(7)" coluna=7 data-id="coluna">Coluna 7</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <th scope="row">Linha 1</th>
+            <th scope="row" linha=1 class="text-center ativo" click-temporal ng-click="pula_linha(1)">Linha 1</th>
             <td linha=1 coluna=1 class="col-md-1">{{alfabeto[0][0]}}</td>
             <td linha=1 coluna=2 class="col-md-1">{{alfabeto[0][1]}}</td>
             <td linha=1 coluna=3 class="col-md-1">{{alfabeto[0][2]}}</td>
@@ -32,12 +29,10 @@
             <td linha=1 coluna=5 class="col-md-1">{{alfabeto[0][4]}}</td>
             <td linha=1 coluna=6 class="col-md-1">{{alfabeto[0][5]}}</td>
             <td linha=1 coluna=7 class="col-md-1">{{alfabeto[0][6]}}</td>
-            <td linha=1 coluna=8 class="col-md-1">{{alfabeto[0][7]}}</td>
-            <td linha=1 coluna=9 class="col-md-1">{{alfabeto[0][8]}}</td>
-            <td linha=1 coluna=10 class="col-md-1">{{alfabeto[0][9]}}</td>
+
           </tr>
           <tr>
-            <th scope="row">Linha 2</th>
+            <th scope="row" linha=2 class=" text-center" click-temporal ng-click="pula_linha(2)">Linha 2</th>
             <td linha=2 coluna=1 class="col-md-1">{{alfabeto[1][0]}}</td>
             <td linha=2 coluna=2 class="col-md-1">{{alfabeto[1][1]}}</td>
             <td linha=2 coluna=3 class="col-md-1">{{alfabeto[1][2]}}</td>
@@ -45,12 +40,9 @@
             <td linha=2 coluna=5 class="col-md-1">{{alfabeto[1][4]}}</td>
             <td linha=2 coluna=6 class="col-md-1">{{alfabeto[1][5]}}</td>
             <td linha=2 coluna=7 class="col-md-1">{{alfabeto[1][6]}}</td>
-            <td linha=2 coluna=8 class="col-md-1">{{alfabeto[1][7]}}</td>
-            <td linha=2 coluna=9 class="col-md-1">{{alfabeto[1][8]}}</td>
-            <td linha=2 coluna=10 class="col-md-1">{{alfabeto[1][9]}}</td>
             </tr>
             <tr>
-              <th scope="row">Linha 3</th>
+              <th scope="row" linha=3 class=" text-center" click-temporal ng-click="pula_linha(3)">Linha 3</th>
               <td linha=3 coluna=1 class="col-md-1">{{alfabeto[2][0]}}</td>
               <td linha=3 coluna=2 class="col-md-1">{{alfabeto[2][1]}}</td>
               <td linha=3 coluna=3 class="col-md-1">{{alfabeto[2][2]}}</td>
@@ -58,10 +50,39 @@
               <td linha=3 coluna=5 class="col-md-1">{{alfabeto[2][4]}}</td>
               <td linha=3 coluna=6 class="col-md-1">{{alfabeto[2][5]}}</td>
               <td linha=3 coluna=7 class="col-md-1">{{alfabeto[2][6]}}</td>
-              <td linha=3 coluna=8 class="col-md-1">{{alfabeto[2][7]}}</td>
-              <td linha=3 coluna=9 class="col-md-1">{{alfabeto[2][8]}}</td>
-              <td linha=3 coluna=10 class="col-md-1">{{alfabeto[2][9]}}</td>
-            </tr> </tbody>
+
+            </tr>
+            <tr>
+              <th scope="row" linha=4 class=" text-center" click-temporal ng-click="pula_linha(4)">Linha 4</th>
+              <td linha=4 coluna=1 class="col-md-1">{{alfabeto[3][0]}}</td>
+              <td linha=4 coluna=2 class="col-md-1">{{alfabeto[3][1]}}</td>
+              <td linha=4 coluna=3 class="col-md-1">{{alfabeto[3][2]}}</td>
+              <td linha=4 coluna=4 class="col-md-1">{{alfabeto[3][3]}}</td>
+              <td linha=4 coluna=5 class="col-md-1">{{alfabeto[3][4]}}</td>
+              <td linha=4 coluna=6 class="col-md-1">{{alfabeto[3][5]}}</td>
+              <td linha=4 coluna=7 class="col-md-1" ><i class="material-icons">space_bar</i></td>
+              </tr>
+              <tr>
+                <th scope="row" linha=5 class=" text-center" click-temporal ng-click="pula_linha(5)">Linha 5</th>
+                <td linha=5 coluna=1 class="col-md-1">{{alfabeto[4][0]}}</td>
+                <td linha=5 coluna=2 class="col-md-1">{{alfabeto[4][1]}}</td>
+                <td linha=5 coluna=3 class="col-md-1">{{alfabeto[4][2]}}</td>
+                <td linha=5 coluna=4 class="col-md-1">{{alfabeto[4][3]}}</td>
+                <td linha=5 coluna=5 class="col-md-1">{{alfabeto[4][4]}}</td>
+                <td linha=5 coluna=6 class="col-md-1">{{alfabeto[4][5]}}</td>
+                <td linha=5 coluna=7 class="col-md-1">{{alfabeto[4][6]}}</td>
+                </tr>
+                <tr>
+                  <th scope="row" linha=6 class=" text-center" click-temporal ng-click="pula_linha(6)">Linha 6</th>
+                  <td linha=6 coluna=1 class="col-md-1">{{alfabeto[5][0]}}</td>
+                  <td linha=6 coluna=2 class="col-md-1">{{alfabeto[5][1]}}</td>
+                  <td linha=6 coluna=3 class="col-md-1">{{alfabeto[5][2]}}</td>
+                  <td linha=6 coluna=4 class="col-md-1">{{alfabeto[5][3]}}</td>
+                  <td linha=6 coluna=5 class="col-md-1">{{alfabeto[5][4]}}</td>
+                  <td linha=6 coluna=6 class="col-md-1">{{alfabeto[5][5]}}</td>
+                  <td linha=6 coluna=7 class="col-md-1">{{alfabeto[5][6]}}</td>
+                  </tr>
+          </tbody>
           </table> </div>
       <div class="col-md-12 btn-toolbar" role="toolbar">
         <button type="button" class="btn btn-info btn-group col-md-2" click-temporal ng-click="zerar('maiu')">
@@ -70,69 +91,21 @@
         <button type="button" class="btn btn-info btn-group col-md-2" click-temporal ng-click="zerar('minu')">
             <span class="glyphicon glyphicon-resize-small"> Minúsculas</span>
         </button>
-        <button type="button" class="btn btn-info btn-group col-md-2" click-temporal ng-click="zerar('ponto')">
-            <span class="glyphicon glyphicon-option-horizontal"> Pontuação</span>
-        </button>
         <button type="button" class="btn btn-info btn-group col-md-2" click-temporal ng-click="zerar('acento')">
             <span class="glyphicon glyphicon-text-background"> Acentos</span>
         </button>
-        <button type="button" class="btn btn-info btn-group col-md-2" click-temporal ng-click="zerar('numero')">
-            <span class="glyphicon glyphicon-sound-5-1"> Números</span>
+        <button type="button" class="col-md-2 btn btn-danger btn-group" click-temporal ng-click="backspace()">
+            <i class="material-icons">backspace</i>
         </button>
-        <button type="button" class="btn btn-info btn-group col-md-1 enter" click-temporal ng-click="adicionar_tecla('enter')">
+
+        <button type="button" class="btn btn-warning btn-group col-md-1 enter" click-temporal ng-click="adicionar_tecla('enter')">
             <span> Enter</span>
         </button>
+        <button type="button" class="col-md-2 btn btn-success btn-group" click-temporal ng-click="adicionar_tecla()">
+          OK
+        </button>
       </div>
-      <div class="col-md-3">
-        <div class="row"  style="padding: 20px;">
-          <label> Linha</label>
-          <span class="input-group-btn">
-              <button type="button" class="btn btn-info btn-number col-md-12" click-temporal ng-click="pula_linha('menos')">
-                  <span class="glyphicon glyphicon-arrow-up"></span>
-              </button>
-          </span>
-          <br>
-          <input type="text" class="form-control input-number col-md-12" value="{{linha}}">
-          <span class="input-group-btn">
-              <button type="button" class="btn btn-info btn-number col-md-12" click-temporal ng-click="pula_linha('mais')" >
-                <span class="glyphicon glyphicon-arrow-down"></span>
-              </button>
-          </span>
-      </div>
-      </div>
-      <div class="col-md-5">
-        <div class="row" style="padding: 20px;">
-          <label class="col-md-12"> Coluna</label>
-              <button type="button" class="btn btn-info btn-number col-md-4 coluna" click-temporal ng-click="pula_coluna('menos')">
-                  <i class="glyphicon glyphicon-arrow-left"></i>
-              </button>
-              <div class="col-md-4">
-                <input type="text" class="form-control input-number coluna" value="{{coluna}}">
-              </div>
-              <button type="button" class="btn btn-info btn-number col-md-4 coluna" click-temporal ng-click="pula_coluna('mais')" >
-                <i class="glyphicon glyphicon-arrow-right"></i>
-              </button>
-      </div>
-      </div>
-      <div class="col-md-2">
-        <label> <br></label>
-        <div class="row" style="padding: 20px;">
-          <button type="button" class="col-md-12 btn btn-success menu ok" click-temporal ng-click="adicionar_tecla()">
-            OK
-          </button>
-        </div>
-      </div>
-      <div class="col-md-2">
-        <label> <br></label>
-        <div class="row" style="padding: 20px;">
-          <button type="button" class="col-md-12 btn btn-primary menu" click-temporal ng-click="adicionar_tecla(' ')">
-              <i class="material-icons">space_bar</i>
-          </button>
-          <button type="button" class="col-md-12 btn btn-danger menu"  style="margin-top:10px; height:75px;" click-temporal ng-click="backspace()">
-              <i class="material-icons">backspace</i>
-          </button>
-        </div>
-      </div>
+
       <div class="col-md-12">
         <textarea rows="6" style="width: 100%; font-size:30px;">
           {{frase_total}}

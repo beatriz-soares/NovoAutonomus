@@ -302,7 +302,6 @@ td{
 .btn-group{
   font-size: 25px;
   height: 115px;
-  background-color:  #476b6b;
 }
 .enter{
   width: 14%;
@@ -316,9 +315,15 @@ input[type="text"]{
 .btn-number{
   height: 115px !important;
 }
-.coluna{
-  height: 320px !important;
-}
 .ok{
   height: 320px !important;
+}
+th{
+  height: 100px;
+}
+th[data-id="coluna"]{
+  height: 150px !important;
+}
+.ativo{
+  background-color: #00b3b3;
 }

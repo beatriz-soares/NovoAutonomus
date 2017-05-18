@@ -5,7 +5,9 @@
     <title></title>
   </head>
   <body>
-    <div class="bs-example" data-example-id="bordered-table">
+    <div class="row">
+
+    <div class="bs-example col-md-9" data-example-id="bordered-table">
       <table class="table table-bordered table-responsive table-hover">
         <thead>
           <tr>
@@ -21,7 +23,7 @@
         </thead>
         <tbody>
           <tr>
-            <th scope="row" linha=1 class="text-center ativo" click-temporal ng-click="pula_linha(1)">Linha 1</th>
+            <th scope="row" linha=1 class="text-center ativo col-md-1" click-temporal ng-click="pula_linha(1)">Linha 1</th>
             <td linha=1 coluna=1 class="col-md-1">{{alfabeto[0][0]}}</td>
             <td linha=1 coluna=2 class="col-md-1">{{alfabeto[0][1]}}</td>
             <td linha=1 coluna=3 class="col-md-1">{{alfabeto[0][2]}}</td>
@@ -32,7 +34,7 @@
 
           </tr>
           <tr>
-            <th scope="row" linha=2 class=" text-center" click-temporal ng-click="pula_linha(2)">Linha 2</th>
+            <th scope="row" linha=2 class=" text-center col-md-1" click-temporal ng-click="pula_linha(2)">Linha 2</th>
             <td linha=2 coluna=1 class="col-md-1">{{alfabeto[1][0]}}</td>
             <td linha=2 coluna=2 class="col-md-1">{{alfabeto[1][1]}}</td>
             <td linha=2 coluna=3 class="col-md-1">{{alfabeto[1][2]}}</td>
@@ -42,7 +44,7 @@
             <td linha=2 coluna=7 class="col-md-1">{{alfabeto[1][6]}}</td>
             </tr>
             <tr>
-              <th scope="row" linha=3 class=" text-center" click-temporal ng-click="pula_linha(3)">Linha 3</th>
+              <th scope="row" linha=3 class=" text-center col-md-1" click-temporal ng-click="pula_linha(3)">Linha 3</th>
               <td linha=3 coluna=1 class="col-md-1">{{alfabeto[2][0]}}</td>
               <td linha=3 coluna=2 class="col-md-1">{{alfabeto[2][1]}}</td>
               <td linha=3 coluna=3 class="col-md-1">{{alfabeto[2][2]}}</td>
@@ -53,7 +55,7 @@
 
             </tr>
             <tr>
-              <th scope="row" linha=4 class=" text-center" click-temporal ng-click="pula_linha(4)">Linha 4</th>
+              <th scope="row" linha=4 class=" text-center col-md-1" click-temporal ng-click="pula_linha(4)">Linha 4</th>
               <td linha=4 coluna=1 class="col-md-1">{{alfabeto[3][0]}}</td>
               <td linha=4 coluna=2 class="col-md-1">{{alfabeto[3][1]}}</td>
               <td linha=4 coluna=3 class="col-md-1">{{alfabeto[3][2]}}</td>
@@ -63,7 +65,7 @@
               <td linha=4 coluna=7 class="col-md-1" ><i class="material-icons">space_bar</i></td>
               </tr>
               <tr>
-                <th scope="row" linha=5 class=" text-center" click-temporal ng-click="pula_linha(5)">Linha 5</th>
+                <th scope="row" linha=5 class=" text-center col-md-1" click-temporal ng-click="pula_linha(5)">Linha 5</th>
                 <td linha=5 coluna=1 class="col-md-1">{{alfabeto[4][0]}}</td>
                 <td linha=5 coluna=2 class="col-md-1">{{alfabeto[4][1]}}</td>
                 <td linha=5 coluna=3 class="col-md-1">{{alfabeto[4][2]}}</td>
@@ -73,7 +75,7 @@
                 <td linha=5 coluna=7 class="col-md-1">{{alfabeto[4][6]}}</td>
                 </tr>
                 <tr>
-                  <th scope="row" linha=6 class=" text-center" click-temporal ng-click="pula_linha(6)">Linha 6</th>
+                  <th scope="row" linha=6 class=" text-center col-md-1" click-temporal ng-click="pula_linha(6)">Linha 6</th>
                   <td linha=6 coluna=1 class="col-md-1">{{alfabeto[5][0]}}</td>
                   <td linha=6 coluna=2 class="col-md-1">{{alfabeto[5][1]}}</td>
                   <td linha=6 coluna=3 class="col-md-1">{{alfabeto[5][2]}}</td>
@@ -81,9 +83,18 @@
                   <td linha=6 coluna=5 class="col-md-1">{{alfabeto[5][4]}}</td>
                   <td linha=6 coluna=6 class="col-md-1">{{alfabeto[5][5]}}</td>
                   <td linha=6 coluna=7 class="col-md-1">{{alfabeto[5][6]}}</td>
+
                   </tr>
           </tbody>
           </table> </div>
+          <div class="col-md-3">
+            <textarea rows="15" style="font-size:30px;">
+              {{frase_total}}
+            </textarea>
+
+          </div>
+        </div>
+
       <div class="col-md-12 btn-toolbar" role="toolbar">
         <button type="button" class="btn btn-info btn-group col-md-2" click-temporal ng-click="zerar('maiu')">
             <span class="glyphicon glyphicon-resize-full"> Maiúsculas</span>
@@ -106,12 +117,7 @@
         </button>
       </div>
 
-      <div class="col-md-12">
-        <textarea rows="6" style="width: 100%; font-size:30px;">
-          {{frase_total}}
-        </textarea>
 
-      </div>
 
   </body>
 </html>

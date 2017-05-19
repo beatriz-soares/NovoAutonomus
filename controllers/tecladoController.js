@@ -91,6 +91,7 @@ app.controller("tecladoController", function($scope, $location, dbService){
 
       pesquisar();
       $scope.voltar();
+      $("textarea").scrollTop($("textarea")[0].scrollHeight);
     }
 
     $scope.pula_linha = function(muda) {
@@ -134,6 +135,7 @@ app.controller("tecladoController", function($scope, $location, dbService){
       });
       $scope.voltar();
       pesquisar();
+      $("textarea").scrollTop($("textarea")[0].scrollHeight);
     }
 
   $scope.backspace = function() {

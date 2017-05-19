@@ -88,6 +88,7 @@ app.controller("tecladoController", function($scope, $location, dbService){
       $scope.frase_total = split.join(" ");
 
       $scope.frase_total  += " ";
+
       pesquisar();
       $scope.voltar();
     }
@@ -117,6 +118,9 @@ app.controller("tecladoController", function($scope, $location, dbService){
     else{
       var tecla = $scope.alfabeto[$scope.linha-1][$scope.coluna-1];
     }
+    if (tecla == ". " || tecla == ", "){
+      salvar();
+    }
 
     $scope.frase_total += tecla;
 
@@ -129,10 +133,12 @@ app.controller("tecladoController", function($scope, $location, dbService){
       }
       });
       $scope.voltar();
+      pesquisar();
     }
 
   $scope.backspace = function() {
     $scope.frase_total = $scope.frase_total.substring(0,$scope.frase_total.length - 1);
+    pesquisar();
     var fs = require('fs');
     fs.writeFile('texto.txt', $scope.frase_total, function (err) {
       if (err) {
@@ -142,9 +148,6 @@ app.controller("tecladoController", function($scope, $location, dbService){
       }
       });
     }
-
-
-  $scope.say_n_save = function(){
 
       function salvar() {
         // Só funciona com o banco atual, presume que o delimitador de início de frase está salvo na primeira posição
@@ -165,7 +168,4 @@ app.controller("tecladoController", function($scope, $location, dbService){
           });
     		});
       }
-
-      say($scope.frase_total, salvar);
-  }
 });

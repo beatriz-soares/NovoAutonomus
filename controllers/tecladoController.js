@@ -1,7 +1,7 @@
 "USE STRICT"
 
 app.controller("tecladoController", function($scope, $location, dbService){
-    $scope.frase_total = "";
+    $scope.frase_total = "\n";
     $scope.palavra_atual = "";
     $scope.palavras = [""];
     $scope.linha = 1;
@@ -92,6 +92,14 @@ app.controller("tecladoController", function($scope, $location, dbService){
       pesquisar();
       $scope.voltar();
       $("textarea").scrollTop($("textarea")[0].scrollHeight);
+      var fs = require('fs');
+      fs.appendFile('texto.txt', palavra, function (err) {
+        if (err) {
+          console.log(err);
+        } else {
+          // done
+        }
+        });
     }
 
     $scope.pula_linha = function(muda) {

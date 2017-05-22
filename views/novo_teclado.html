@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="controllers/auton.css">
     <title></title>
   </head>
   <body>
@@ -12,18 +13,18 @@
         <thead>
           <tr>
             <th></th>
-            <th click-temporal ng-click="pula_coluna(1)" coluna=1 data-id="coluna" class="ativo">Coluna 1</th>
-            <th click-temporal ng-click="pula_coluna(2)" coluna=2 data-id="coluna">Coluna 2</th>
-            <th click-temporal ng-click="pula_coluna(3)" coluna=3 data-id="coluna">Coluna 3</th>
-            <th click-temporal ng-click="pula_coluna(4)" coluna=4 data-id="coluna">Coluna 4</th>
-            <th click-temporal ng-click="pula_coluna(5)" coluna=5 data-id="coluna">Coluna 5</th>
-            <th click-temporal ng-click="pula_coluna(6)" coluna=6 data-id="coluna">Coluna 6</th>
-            <th click-temporal ng-click="pula_coluna(7)" coluna=7 data-id="coluna">Coluna 7</th>
+            <th click-temporal ng-click="pula_coluna(1)" coluna=1 data-id="coluna" class="ativo"><span class="coluna">Coluna 1</span></th>
+            <th click-temporal ng-click="pula_coluna(2)" coluna=2 data-id="coluna"><span class="coluna">Coluna 2</span></th>
+            <th click-temporal ng-click="pula_coluna(3)" coluna=3 data-id="coluna"><span class="coluna">Coluna 3</span></th>
+            <th click-temporal ng-click="pula_coluna(4)" coluna=4 data-id="coluna"><span class="coluna">Coluna 4</span></th>
+            <th click-temporal ng-click="pula_coluna(5)" coluna=5 data-id="coluna"><span class="coluna">Coluna 5</span></th>
+            <th click-temporal ng-click="pula_coluna(6)" coluna=6 data-id="coluna"><span class="coluna">Coluna 6</span></th>
+            <th click-temporal ng-click="pula_coluna(7)" coluna=7 data-id="coluna"><span class="coluna">Coluna 7</span></th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <th scope="row" linha=1 class="text-center ativo col-md-1" click-temporal ng-click="pula_linha(1)">Linha 1</th>
+            <th scope="row" linha=1 class="text-center ativo col-md-1" click-temporal ng-click="pula_linha(1)"><span class="linha">Linha 1</span></th>
             <td linha=1 coluna=1 class="col-md-1">{{alfabeto[0][0]}}</td>
             <td linha=1 coluna=2 class="col-md-1">{{alfabeto[0][1]}}</td>
             <td linha=1 coluna=3 class="col-md-1">{{alfabeto[0][2]}}</td>
@@ -34,7 +35,7 @@
 
           </tr>
           <tr>
-            <th scope="row" linha=2 class=" text-center col-md-1" click-temporal ng-click="pula_linha(2)">Linha 2</th>
+            <th scope="row" linha=2 class=" text-center col-md-1" click-temporal ng-click="pula_linha(2)"><span class="linha">Linha 2</span></th>
             <td linha=2 coluna=1 class="col-md-1">{{alfabeto[1][0]}}</td>
             <td linha=2 coluna=2 class="col-md-1">{{alfabeto[1][1]}}</td>
             <td linha=2 coluna=3 class="col-md-1">{{alfabeto[1][2]}}</td>
@@ -44,7 +45,7 @@
             <td linha=2 coluna=7 class="col-md-1">{{alfabeto[1][6]}}</td>
             </tr>
             <tr>
-              <th scope="row" linha=3 class=" text-center col-md-1" click-temporal ng-click="pula_linha(3)">Linha 3</th>
+              <th scope="row" linha=3 class=" text-center col-md-1" click-temporal ng-click="pula_linha(3)"><span class="linha">Linha 3</span></th>
               <td linha=3 coluna=1 class="col-md-1">{{alfabeto[2][0]}}</td>
               <td linha=3 coluna=2 class="col-md-1">{{alfabeto[2][1]}}</td>
               <td linha=3 coluna=3 class="col-md-1">{{alfabeto[2][2]}}</td>
@@ -55,7 +56,7 @@
 
             </tr>
             <tr>
-              <th scope="row" linha=4 class=" text-center col-md-1" click-temporal ng-click="pula_linha(4)">Linha 4</th>
+              <th scope="row" linha=4 class=" text-center col-md-1" click-temporal ng-click="pula_linha(4)"><span class="linha">Linha 4</span></th>
               <td linha=4 coluna=1 class="col-md-1">{{alfabeto[3][0]}}</td>
               <td linha=4 coluna=2 class="col-md-1">{{alfabeto[3][1]}}</td>
               <td linha=4 coluna=3 class="col-md-1">{{alfabeto[3][2]}}</td>
@@ -65,7 +66,7 @@
               <td linha=4 coluna=7 class="col-md-1" ><i class="material-icons">space_bar</i></td>
               </tr>
               <tr>
-                <th scope="row" linha=5 class=" text-center col-md-1" click-temporal ng-click="pula_linha(5)">Linha 5</th>
+                <th scope="row" linha=5 class=" text-center col-md-1" click-temporal ng-click="pula_linha(5)"><span class="linha">Linha 5</span></th>
                 <td linha=5 coluna=1 class="col-md-1">{{alfabeto[4][0]}}</td>
                 <td linha=5 coluna=2 class="col-md-1">{{alfabeto[4][1]}}</td>
                 <td linha=5 coluna=3 class="col-md-1">{{alfabeto[4][2]}}</td>
@@ -75,7 +76,7 @@
                 <td linha=5 coluna=7 class="col-md-1">{{alfabeto[4][6]}}</td>
                 </tr>
                 <tr>
-                  <th scope="row" linha=6 class=" text-center col-md-1" click-temporal ng-click="pula_linha(6)">Linha 6</th>
+                  <th scope="row" linha=6 class=" text-center col-md-1" click-temporal ng-click="pula_linha(6)"><span class="linha">Linha 6</span></th>
                   <td linha=6 coluna=1 class="col-md-1">{{alfabeto[5][0]}}</td>
                   <td linha=6 coluna=2 class="col-md-1">{{alfabeto[5][1]}}</td>
                   <td linha=6 coluna=3 class="col-md-1">{{alfabeto[5][2]}}</td>

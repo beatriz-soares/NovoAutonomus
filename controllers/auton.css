@@ -165,6 +165,7 @@ md-progress-circular.md-default-theme path, md-progress-circular path {
   font-size: 20px;
 }
 
+/* Centralizando a vistualização da Linha */
 .linha{
   width: 100%;
   float:left;

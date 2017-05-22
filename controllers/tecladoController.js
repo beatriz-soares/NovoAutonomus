@@ -104,18 +104,18 @@ app.controller("tecladoController", function($scope, $location, dbService){
 
     $scope.pula_linha = function(muda) {
         $scope.linha=muda;
-        $("td").css("color", "black");
+        $("td").css("background-color", "#EFEFEF");
         $("th[scope='row']").removeClass("ativo");
         $("th[linha="+ muda + "]").addClass("ativo");
-        $("td[linha="+ muda + "][coluna="+$scope.coluna+"]").css("color", "red");
+        $("td[linha="+ muda + "][coluna="+$scope.coluna+"]").css("background-color", "#ddc6a6");
 
      };
 
    $scope.pula_coluna = function(muda) {
-         $("td").css("color", "black");
+        $("td").css("background-color", "#EFEFEF");
         $("th[data-id='coluna']").removeClass("ativo");
         $("th[coluna="+ muda + "]").addClass("ativo");
-        $("td[linha="+ $scope.linha + "][coluna="+muda+"]").css("color", "red");
+        $("td[linha="+ $scope.linha + "][coluna="+muda+"]").css("background-color", "#ddc6a6");
         $scope.coluna=muda;
     };
 

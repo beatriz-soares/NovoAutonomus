@@ -327,3 +327,20 @@ th[data-id="coluna"]{
 .ativo{
   background-color: #00b3b3;
 }
+
+/* Centralizando a vistualização da Coluna */
+.coluna{
+  width: 100%;
+  float:left;
+  text-align:center;
+  line-height:125px;
+  font-size: 20px;
+}
+
+/* Centralizando a vistualização da Linha */
+.linha{
+  width: 100%;
+  float:left;
+  text-align:center;
+  line-height: 100px;
+}

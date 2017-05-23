@@ -75,12 +75,12 @@ app.controller("tecladoController", function($scope, $location, dbService){
                             ['8', '9', '0', '. ', ', ', '? ', '! ']];
         }
     }
-
     $scope.voltar = function() {
         $scope.zerar("minu");
     };
 
     $scope.add_palavra = function(palavra) {
+      new Audio("static/images/clique.mp3").play();
       var split = $scope.frase_total.split(' ');
 
       split[split.length - 1] = palavra;
@@ -120,7 +120,7 @@ app.controller("tecladoController", function($scope, $location, dbService){
     };
 
   $scope.adicionar_tecla = function(a) {
-
+    new Audio("static/images/clique.mp3").play();
     if (a == 'enter'){
       var tecla = "\n";
     }
@@ -147,6 +147,7 @@ app.controller("tecladoController", function($scope, $location, dbService){
     }
 
   $scope.backspace = function() {
+    new Audio("static/images/clique.mp3").play();
     $scope.frase_total = $scope.frase_total.substring(0,$scope.frase_total.length - 1);
     pesquisar();
     var fs = require('fs');

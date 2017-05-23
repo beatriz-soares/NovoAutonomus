@@ -99,11 +99,17 @@
         </div>
 
       <div class="col-md-12 btn-toolbar" role="toolbar">
+        <button type="button" class="btn btn-warning btn-group col-md-1 enter" click-temporal ng-click="adicionar_tecla('enter')">
+            <span> Enter</span>
+        </button>
         <button type="button" class="btn btn-info btn-group col-md-2" click-temporal ng-click="zerar('maiu')">
             <span class="glyphicon glyphicon-resize-full"> Maiúsculas</span>
         </button>
         <button type="button" class="btn btn-info btn-group col-md-2" click-temporal ng-click="zerar('minu')">
             <span class="glyphicon glyphicon-resize-small"> Minúsculas</span>
+        </button>
+        <button type="button" class="col-md-2 btn btn-success btn-group" click-temporal ng-click="adicionar_tecla()">
+          OK
         </button>
         <button type="button" class="btn btn-info btn-group col-md-2" click-temporal ng-click="zerar('acento')">
             <span class="glyphicon glyphicon-text-background"> Acentos</span>
@@ -112,15 +118,7 @@
             <i class="material-icons">backspace</i>
         </button>
 
-        <button type="button" class="btn btn-warning btn-group col-md-1 enter" click-temporal ng-click="adicionar_tecla('enter')">
-            <span> Enter</span>
-        </button>
-        <button type="button" class="col-md-2 btn btn-success btn-group" click-temporal ng-click="adicionar_tecla()">
-          OK
-        </button>
+
       </div>
-
-
-
   </body>
 </html>

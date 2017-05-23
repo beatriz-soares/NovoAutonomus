@@ -62,7 +62,7 @@
               <td linha=4 coluna=4 class="col-md-1">{{alfabeto[3][3]}}</td>
               <td linha=4 coluna=5 class="col-md-1">{{alfabeto[3][4]}}</td>
               <td linha=4 coluna=6 class="col-md-1">{{alfabeto[3][5]}}</td>
-              <td linha=4 coluna=7 class="col-md-1" ><i class="material-icons">space_bar</i></td>
+              <td linha=4 coluna=7 class="col-md-1" style="font-size: 25px;" >Espaço</td>
               </tr>
               <tr>
                 <th scope="row" linha=5 class=" text-center col-md-1" click-temporal ng-click="pula_linha(5)"><span class="linha">Linha 5</span></th>
@@ -88,12 +88,10 @@
           </tbody>
           </table> </div>
           <div class="col-md-3">
-            <textarea rows="15" style="font-size:30px;">
-              {{frase_total}}
-            </textarea>
+            <textarea rows="16" cols="13" style="font-size:30px;">{{frase_total}}</textarea>
             <br class="underline">
             <br>
-            <div class="btn btn-primary col-md-8" click-temporal ng-click="add_palavra(palavras[0].texto)" style="height: 95px; font-size:30px;">
+            <div class="btn btn-primary col-md-10" click-temporal ng-click="add_palavra(palavras[0].texto)" style="height: 95px; font-size:30px;">
               {{palavras[0].texto}}
             </div>
 

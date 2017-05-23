@@ -1,7 +1,7 @@
 "USE STRICT"
 
 app.controller("tecladoController", function($scope, $location, dbService){
-    $scope.frase_total = "\n";
+    $scope.frase_total = "";
     $scope.palavra_atual = "";
     $scope.palavras = [""];
     $scope.linha = 1;

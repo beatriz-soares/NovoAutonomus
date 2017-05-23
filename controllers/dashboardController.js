@@ -19,7 +19,7 @@ app.directive('clickTemporal', function() {
                         $($event.target).trigger('click');
                     }
                 };
-            }, 1500);
+            }, 600);
           });
           element.bind('mouseleave', function($event) {
             if(!timer != null) {
@@ -42,7 +42,7 @@ app.directive('mdPrevButton', function() {
                 if(acao) {
                     $($event.target).trigger('click');
                 };
-            }, 1500);
+            }, 600);
           });
           element.bind('mouseleave', function($event) {
             if(!timer != null) {

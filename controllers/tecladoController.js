@@ -150,15 +150,25 @@ app.controller("tecladoController", function($scope, $location, dbService){
     new Audio("static/images/clique.mp3").play();
     $scope.frase_total = $scope.frase_total.substring(0,$scope.frase_total.length - 1);
     pesquisar();
+
     var fs = require('fs');
-    fs.writeFile('texto.txt', $scope.frase_total, function (err) {
+    fs.readFile('texto.txt', function read(err, data) {
+    if (err) {
+        throw err;
+    }
+    content = data;
+
+    content = content.slice(0, -1);
+    fs.writeFile('texto.txt', content, function (err) {
       if (err) {
         console.log(err);
       } else {
         // done
       }
       });
-    }
+    });
+
+  }
 
       function salvar() {
         // Só funciona com o banco atual, presume que o delimitador de início de frase está salvo na primeira posição

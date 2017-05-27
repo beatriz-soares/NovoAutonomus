@@ -12,6 +12,7 @@ app.controller("tecladoController", function($scope, $location, dbService){
                       ['V', 'W', 'X', 'Y', 'Z', 'Ç', ' '],
                       ['1', '2', '3', '4', '5', '6', '7'],
                       ['8', '9', '0', '. ', ', ', '? ', '! ']];
+    $scope.moment = "linha";
 
 
     // Retirar bug
@@ -74,6 +75,10 @@ app.controller("tecladoController", function($scope, $location, dbService){
                             ['1', '2', '3', '4', '5', '6', '7'],
                             ['8', '9', '0', '. ', ', ', '? ', '! ']];
         }
+        else if (atual == "linha"){
+          $scope.moment = "linha"
+          pula_linha();
+        }
     }
     $scope.voltar = function() {
         $scope.zerar("minu");
@@ -102,24 +107,51 @@ app.controller("tecladoController", function($scope, $location, dbService){
         });
     }
 
-    $scope.pula_linha = function(muda) {
-        $scope.linha=muda;
+    function pula_linha(requestStop) {
+      if ($scope.moment == "linha") {
+          $scope.linha+=1;
+        if ($scope.linha>6)
+          $scope.linha=1;
+        muda = $scope.linha;
         $("td").css("background-color", "#EFEFEF");
         $("th[scope='row']").removeClass("ativo");
         $("th[linha="+ muda + "]").addClass("ativo");
         $("td[linha="+ muda + "][coluna="+$scope.coluna+"]").css("background-color", "#ddc6a6");
 
+          setTimeout(pula_linha, 1000);
+        }
+
      };
 
-   $scope.pula_coluna = function(muda) {
+     pula_linha();
+
+   $scope.escolhe_linha = function(muda) {
+     $scope.moment = "coluna";
+     pula_coluna();
+   };
+
+   $scope.escolhe_coluna = function(muda) {
+     $scope.moment = "";
+   };
+
+
+    function pula_coluna (muda) {
+     if ($scope.moment == "coluna") {
+         $scope.coluna+=1;
+       if ($scope.coluna>7)
+         $scope.coluna=1;
+       muda = $scope.coluna;
         $("td").css("background-color", "#EFEFEF");
         $("th[data-id='coluna']").removeClass("ativo");
         $("th[coluna="+ muda + "]").addClass("ativo");
         $("td[linha="+ $scope.linha + "][coluna="+muda+"]").css("background-color", "#ddc6a6");
-        $scope.coluna=muda;
+
+        setTimeout(pula_coluna, 1000);
+      }
     };
 
   $scope.adicionar_tecla = function(a) {
+    $scope.moment = "linha";
     new Audio("static/images/clique.mp3").play();
     if (a == 'enter'){
       var tecla = "\n";
@@ -144,6 +176,7 @@ app.controller("tecladoController", function($scope, $location, dbService){
       $scope.voltar();
       pesquisar();
       $("textarea").scrollTop($("textarea")[0].scrollHeight);
+      pula_linha();
     }
 
   $scope.backspace = function() {

@@ -164,9 +164,6 @@ app.controller("tecladoController", function($scope, $location, dbService){
       else{
         var tecla = $scope.alfabeto[$scope.linha-1][$scope.coluna-1];
       }
-      if (tecla == ". " || tecla == ", "){
-        salvar();
-      }
 
       $scope.frase_total += tecla;
 
@@ -183,6 +180,10 @@ app.controller("tecladoController", function($scope, $location, dbService){
         $("textarea").scrollTop($("textarea")[0].scrollHeight);
         $scope.moment = "linha";
         pula_linha();
+        if (tecla == ". " || tecla == ", "){
+          salvar();
+          $scope.zerar("maiu");
+        }
       }
     }
 

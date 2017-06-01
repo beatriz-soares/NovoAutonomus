@@ -107,7 +107,7 @@ app.controller("tecladoController", function($scope, $location, dbService){
         });
     }
 
-    function pula_linha(requestStop) {
+    function pula_linha() {
       if ($scope.moment == "linha") {
           $scope.linha+=1;
         if ($scope.linha>6)
@@ -118,19 +118,19 @@ app.controller("tecladoController", function($scope, $location, dbService){
         $("th[linha="+ muda + "]").addClass("ativo");
         $("td[linha="+ muda + "][coluna="+$scope.coluna+"]").css("background-color", "#ddc6a6");
 
-          setTimeout(pula_linha, 1000);
+        setTimeout(pula_linha, 1000);
         }
 
      };
 
      pula_linha();
 
-   $scope.escolhe_linha = function(muda) {
+   $scope.escolhe_linha = function() {
      $scope.moment = "coluna";
      pula_coluna();
    };
 
-   $scope.escolhe_coluna = function(muda) {
+   $scope.escolhe_coluna = function() {
      $scope.moment = "";
    };
 
@@ -151,32 +151,39 @@ app.controller("tecladoController", function($scope, $location, dbService){
     };
 
   $scope.adicionar_tecla = function(a) {
-    $scope.moment = "linha";
     new Audio("static/images/clique.mp3").play();
-    if (a == 'enter'){
-      var tecla = "\n";
+    if ($scope.moment == "linha"){
+      $scope.escolhe_linha();
     }
-    else{
-      var tecla = $scope.alfabeto[$scope.linha-1][$scope.coluna-1];
-    }
-    if (tecla == ". " || tecla == ", "){
-      salvar();
-    }
+    else if ($scope.moment == "coluna"){
+      $scope.escolhe_coluna();
 
-    $scope.frase_total += tecla;
-
-    var fs = require('fs');
-    fs.appendFile('texto.txt', tecla, function (err) {
-      if (err) {
-        console.log(err);
-      } else {
-        // done
+      if (a == 'enter'){
+        var tecla = "\n";
       }
-      });
-      $scope.voltar();
-      pesquisar();
-      $("textarea").scrollTop($("textarea")[0].scrollHeight);
-      pula_linha();
+      else{
+        var tecla = $scope.alfabeto[$scope.linha-1][$scope.coluna-1];
+      }
+      if (tecla == ". " || tecla == ", "){
+        salvar();
+      }
+
+      $scope.frase_total += tecla;
+
+      var fs = require('fs');
+      fs.appendFile('texto.txt', tecla, function (err) {
+        if (err) {
+          console.log(err);
+        } else {
+          // done
+        }
+        });
+        $scope.voltar();
+        pesquisar();
+        $("textarea").scrollTop($("textarea")[0].scrollHeight);
+        $scope.moment = "linha";
+        pula_linha();
+      }
     }
 
   $scope.backspace = function() {

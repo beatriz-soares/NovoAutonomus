@@ -1,50 +1,52 @@
-"USE STRICT"
+const {app, BrowserWindow} = require('electron')
+const path = require('path')
+const url = require('url')
 
-var electron = require('electron');
-var app = require('app');
-var BrowserWindow = require('browser-window');
-var exec = require('child_process').exec;
+// Keep a global reference of the window object, if you don't, the window will
+// be closed automatically when the JavaScript object is garbage collected.
+let win
 
-require('electron-debug')({showDevTools: false});
+function createWindow () {
+  // Create the browser window.
+  win = new BrowserWindow({width: 800, height: 600})
 
-var mouseControl = exec('python3 ' + __dirname + '/pupil_remote/mouse_control.py');
+  // and load the index.html of the app.
+  win.loadURL(url.format({
+    pathname: path.join(__dirname, 'index.html'),
+    protocol: 'file:',
+    slashes: true
+  }))
 
-// referência global para manter a instância da janela até que sejam fechadas pelo usuário então ele irá ser fechado quando o JavaScript fizer Garbage collection
-var mainWindow = null;
+  // Open the DevTools.
+  win.webContents.openDevTools()
 
-// Sair da aplicação quando todas as janelas forem fechadas
-app.on('window-all-closed', function() {
-  mouseControl.kill();
+  // Emitted when the window is closed.
+  win.on('closed', () => {
+    // Dereference the window object, usually you would store windows
+    // in an array if your app supports multi windows, this is the time
+    // when you should delete the corresponding element.
+    win = null
+  })
+}
 
-  if (process.platform != 'darwin') {
-    app.quit();
+// This method will be called when Electron has finished
+// initialization and is ready to create browser windows.
+// Some APIs can only be used after this event occurs.
+app.on('ready', createWindow)
+
+// Quit when all windows are closed.
+app.on('window-all-closed', () => {
+  // On macOS it is common for applications and their menu bar
+  // to stay active until the user quits explicitly with Cmd + Q
+  if (process.platform !== 'darwin') {
+    app.quit()
   }
-});
+})
 
-app.on('ready', function() {
-  // Cria a janela do browser.
-  mainWindow = new BrowserWindow({width: 1400, height: 800});
-
-  // Adiciona o Jquery ao projeto
-  // let $ = require('jQuery');
-  // mainWindow.$ = $;
-
-  // Carrega o arquivo html principal.
-  mainWindow.loadURL('file://' + __dirname + '/index.html');
-
-  // aber o DevTools. (console, inspecionar elemento, etc)
-  // mainWindow.webContents.openDevTools();
-
-  // Evento emitido quando a janela é fechada, usado para destruir instancia.
-  mainWindow.on('closed', function() {
-    mainWindow = null;
-  });
-});
-
-app.on('will-quit', function() {
-  mouseControl.kill();
-});
-
-app.on('quit', function() {
-  mouseControl.kill();
-});
+app.on('activate', () => {
+  // On macOS it's common to re-create a window in the app when the
+  // dock icon is clicked and there are no other windows open.
+  if (win === null) {
+    createWindow()
+  }
+})

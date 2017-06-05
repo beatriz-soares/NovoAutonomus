@@ -1,6 +1,15 @@
 "USE STRICT"
 
 app.controller("tecladoController", function($scope, $location, dbService){
+    var pupil = require('pupil-remote');
+
+    var receiver = new pupil.MessageReceiver('10.4.5.117', 35435);
+
+    receiver.on('blinks', (dados)=>{
+      if(dados.topic=='blink' && dados.tempo>0.4)
+        $scope.adicionar_tecla();
+    })
+
     $scope.frase_total = "";
     $scope.palavra_atual = "";
     $scope.palavras = [""];
@@ -13,7 +22,6 @@ app.controller("tecladoController", function($scope, $location, dbService){
                       ['1', '2', '3', '4', '5', '6', '7'],
                       ['8', '9', '0', '. ', ', ', '? ', '! ']];
     $scope.moment = "linha";
-
 
     // Retirar bug
     // dbService.runAsync(`SELECT * FROM ocorrencias`, function(){});
@@ -230,4 +238,5 @@ app.controller("tecladoController", function($scope, $location, dbService){
           });
     		});
       }
+
 });

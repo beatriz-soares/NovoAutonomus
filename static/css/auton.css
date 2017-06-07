@@ -3,6 +3,7 @@
 body{
   /*background-image: url('../back.jpg');*/
   background-color: #EFEFEF;
+  width: 100%;
 }
 
 #dashboard md-card{
@@ -350,4 +351,10 @@ th[data-id="coluna"]{
 .td-menor{
   font-size: 38px;
   max-width: 20px;
+
+}
+
+.td-acentuacao{
+  font-size: 38px;
+  max-width: 25px;
 }

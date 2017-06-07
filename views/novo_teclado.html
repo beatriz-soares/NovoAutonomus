@@ -1,115 +1,30 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <div class="row">
+<div class="row">
+  <div class="bs-example col-md-9" data-example-id="bordered-table">
+    <!--Tabela do alfabeto-->
+    <table class="table table-bordered table-responsive table-hover">
+      <tbody>
+        <tr ng-repeat="linha in alfabeto">
+          <td linha="{{$parent.$index}}" class="{{coluna.c !=undefined ? coluna.c : ''}}" coluna="{{$index}}" ng-repeat="coluna in linha">{{coluna.a == '' ? coluna.v : coluna.a}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-3">
+    <textarea rows="16" cols="13" style="font-size:30px;" ng-model="frase_total"></textarea>
+    <div class="btn btn-primary col-md-10" click-temporal ng-click="add_palavra(palavras[0].texto)" style="height: 95px; font-size:30px;">
+      {{palavras[0].texto}}
+    </div>
+  </div>
+</div>
 
-    <div class="bs-example col-md-9" data-example-id="bordered-table">
-      <table class="table table-bordered table-responsive table-hover">
-        <thead>
-          <tr>
-            <th></th>
-            <th coluna=1 data-id="coluna" class="ativo"><span class="coluna">Coluna 1</span></th>
-            <th coluna=2 data-id="coluna"><span class="coluna">Coluna 2</span></th>
-            <th coluna=3 data-id="coluna"><span class="coluna">Coluna 3</span></th>
-            <th coluna=4 data-id="coluna"><span class="coluna">Coluna 4</span></th>
-            <th coluna=5 data-id="coluna"><span class="coluna">Coluna 5</span></th>
-            <th coluna=6 data-id="coluna"><span class="coluna">Coluna 6</span></th>
-            <th coluna=7 data-id="coluna"><span class="coluna">Coluna 7</span></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row" linha=1 class="text-center ativo col-md-1"><span class="linha">Linha 1</span></th>
-            <td linha=1 coluna=1 class="col-md-1">{{alfabeto[0][0]}}</td>
-            <td linha=1 coluna=2 class="col-md-1">{{alfabeto[0][1]}}</td>
-            <td linha=1 coluna=3 class="col-md-1">{{alfabeto[0][2]}}</td>
-            <td linha=1 coluna=4 class="col-md-1">{{alfabeto[0][3]}}</td>
-            <td linha=1 coluna=5 class="col-md-1">{{alfabeto[0][4]}}</td>
-            <td linha=1 coluna=6 class="col-md-1">{{alfabeto[0][5]}}</td>
-            <td linha=1 coluna=7 class="col-md-1">{{alfabeto[0][6]}}</td>
-
-          </tr>
-          <tr>
-            <th scope="row" linha=2 class=" text-center col-md-1"><span class="linha">Linha 2</span></th>
-            <td linha=2 coluna=1 class="col-md-1">{{alfabeto[1][0]}}</td>
-            <td linha=2 coluna=2 class="col-md-1">{{alfabeto[1][1]}}</td>
-            <td linha=2 coluna=3 class="col-md-1">{{alfabeto[1][2]}}</td>
-            <td linha=2 coluna=4 class="col-md-1">{{alfabeto[1][3]}}</td>
-            <td linha=2 coluna=5 class="col-md-1">{{alfabeto[1][4]}}</td>
-            <td linha=2 coluna=6 class="col-md-1">{{alfabeto[1][5]}}</td>
-            <td linha=2 coluna=7 class="col-md-1">{{alfabeto[1][6]}}</td>
-            </tr>
-            <tr>
-              <th scope="row" linha=3 class=" text-center col-md-1"><span class="linha">Linha 3</span></th>
-              <td linha=3 coluna=1 class="col-md-1">{{alfabeto[2][0]}}</td>
-              <td linha=3 coluna=2 class="col-md-1">{{alfabeto[2][1]}}</td>
-              <td linha=3 coluna=3 class="col-md-1">{{alfabeto[2][2]}}</td>
-              <td linha=3 coluna=4 class="col-md-1">{{alfabeto[2][3]}}</td>
-              <td linha=3 coluna=5 class="col-md-1">{{alfabeto[2][4]}}</td>
-              <td linha=3 coluna=6 class="col-md-1">{{alfabeto[2][5]}}</td>
-              <td linha=3 coluna=7 class="col-md-1">{{alfabeto[2][6]}}</td>
-
-            </tr>
-            <tr>
-              <th scope="row" linha=4 class=" text-center col-md-1"><span class="linha">Linha 4</span></th>
-              <td linha=4 coluna=1 class="col-md-1">{{alfabeto[3][0]}}</td>
-              <td linha=4 coluna=2 class="col-md-1">{{alfabeto[3][1]}}</td>
-              <td linha=4 coluna=3 class="col-md-1">{{alfabeto[3][2]}}</td>
-              <td linha=4 coluna=4 class="col-md-1">{{alfabeto[3][3]}}</td>
-              <td linha=4 coluna=5 class="col-md-1">{{alfabeto[3][4]}}</td>
-              <td linha=4 coluna=6 class="col-md-1">{{alfabeto[3][5]}}</td>
-              <td linha=4 coluna=7 class="col-md-1" style="font-size: 25px;" >Espaço</td>
-              </tr>
-              <tr>
-                <th scope="row" linha=5 class=" text-center col-md-1"><span class="linha">Linha 5</span></th>
-                <td linha=5 coluna=1 class="col-md-1">{{alfabeto[4][0]}}</td>
-                <td linha=5 coluna=2 class="col-md-1">{{alfabeto[4][1]}}</td>
-                <td linha=5 coluna=3 class="col-md-1">{{alfabeto[4][2]}}</td>
-                <td linha=5 coluna=4 class="col-md-1">{{alfabeto[4][3]}}</td>
-                <td linha=5 coluna=5 class="col-md-1">{{alfabeto[4][4]}}</td>
-                <td linha=5 coluna=6 class="col-md-1">{{alfabeto[4][5]}}</td>
-                <td linha=5 coluna=7 class="col-md-1">{{alfabeto[4][6]}}</td>
-                </tr>
-                <tr>
-                  <th scope="row" linha=6 class=" text-center col-md-1"><span class="linha">Linha 6</span></th>
-                  <td linha=6 coluna=1 class="col-md-1">{{alfabeto[5][0]}}</td>
-                  <td linha=6 coluna=2 class="col-md-1">{{alfabeto[5][1]}}</td>
-                  <td linha=6 coluna=3 class="col-md-1">{{alfabeto[5][2]}}</td>
-                  <td linha=6 coluna=4 class="col-md-1">{{alfabeto[5][3]}}</td>
-                  <td linha=6 coluna=5 class="col-md-1">{{alfabeto[5][4]}}</td>
-                  <td linha=6 coluna=6 class="col-md-1">{{alfabeto[5][5]}}</td>
-                  <td linha=6 coluna=7 class="col-md-1">{{alfabeto[5][6]}}</td>
-
-                  </tr>
-          </tbody>
-          </table> </div>
-          <div class="col-md-3">
-            <textarea rows="16" cols="13" style="font-size:30px;">{{frase_total}}</textarea>
-            <br class="underline">
-            <br>
-            <div class="btn btn-primary col-md-10" click-temporal ng-click="add_palavra(palavras[0].texto)" style="height: 95px; font-size:30px;">
-              {{palavras[0].texto}}
-            </div>
-
-          </div>
-        </div>
-
-      <div class="col-md-12 btn-toolbar" role="toolbar">
-        <button type="button" class="btn btn-warning btn-group col-md-3 enter" click-temporal ng-click="zerar('linha')">
-            <span> Voltar para linha</span>
-        </button>
-        <button type="button" class="col-md-6 btn btn-success btn-group" click-temporal ng-click="adicionar_tecla()">
-          OK
-        </button>
-        <button type="button" class="col-md-2 btn btn-danger btn-group" click-temporal ng-click="backspace()">
-            <i>Apagar</i>
-        </button>
-
-
-      </div>
-  </body>
-</html>
+<div class="col-md-12 btn-toolbar" role="toolbar">
+  <button type="button" class="btn btn-warning btn-group col-md-3 enter" click-temporal ng-click="zerar('linha')">
+      <span> Voltar para linha</span>
+  </button>
+  <button type="button" class="col-md-6 btn btn-success btn-group" click-temporal ng-click="adicionar_tecla()">
+    OK
+  </button>
+  <button type="button" class="col-md-2 btn btn-danger btn-group" click-temporal ng-click="backspace()">
+      <i>Apagar</i>
+  </button>
+</div>

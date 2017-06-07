@@ -346,68 +346,8 @@ th[data-id="coluna"]{
 .ok{
   height: 320px !important;
 }
-.conteudo{
-  padding: 80px;
-}
-.marker{
-  position: fixed;
-  background-image: url('../images/all_markers.png');
-  background-size: 800px;
-  margin: 10px;
-  width: 70px;
-  height: 70px;
-}
 
-.marker-1{
-  background-position: -15px -15px;
-  top: 0;
-  left: 0;
-}
-
-.marker-2{
-  background-position: -115px -15px;
-  top: 0;
-  right: 0;
-}
-
-.marker-3{
-  background-position: -215px -15px;
-  bottom: 0;
-  left: 0;
-}
-
-.marker-4{
-  background-position: -315px -15px;
-  bottom: 0;
-  right: 0;
-}
-
-.marker-5{
-  background-position: -415px -15px;
-  bottom: 0;
-  right: calc(50% - 40px);
-}
-
-.marker-6{
-  background-position: -515px -15px;
-  top: 0;
-  right: calc(50% - 40px);
-}
-
-.marker-7{
-  background-position: -615px -15px;
-  bottom: calc(50% - 40px);
-  right: 0;
-}
-
-.marker-8{
-  background-position: -715px -15px;
-  bottom: calc(50% - 40px);
-  left: 0;
-}
-
-.marker-9{
-  background-position: -815px -15px;
-  bottom: 0;
-  right: 0;
+.td-menor{
+  font-size: 38px;
+  max-width: 20px;
 }

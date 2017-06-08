@@ -8,7 +8,7 @@ app.controller("tecladoController", function($scope, $location, dbService){
   let receiver = new pupil.MessageReceiver('127.0.0.1', 50020);
 
   $scope.frase_total = "";
-  $scope.palavra_atual = "";
+  $scope.frase_atual = "";
   $scope.palavras = ["", ""];
   $scope.linha = -1;
   $scope.coluna = 0;
@@ -18,7 +18,7 @@ app.controller("tecladoController", function($scope, $location, dbService){
     [{v:'O', a:''}, {v:'P', a:''}, {v:'Q', a:''}, {v:'R', a:''}, {v:'S', a:''}, {v:'T', a:''}, {v:'U', a:''}],
     [{v:'V', a:''}, {v:'W', a:''}, {v:'X', a:''}, {v:'Y', a:''}, {v:'Z', a:''}, {v:'Ç', a:''}, {v:' ', a:'Espaço', c:'td-menor'}],
     [{v:'1', a:''}, {v:'2', a:''}, {v:'3', a:''}, {v:'4', a:''}, {v:'5', a:''}, {v:'6', a:''}, {v:'7', a:''}],
-    [{v:'8', a:''}, {v:'9', a:''}, {v:'0', a:''}, {v:'.', a:''}, {v:',', a:''}, {v:'?', a:''}, {v:'!', a:''}],
+    [{v:'8', a:''}, {v:'9', a:''}, {v:'0', a:''}, {v:'. ', a:''}, {v:', ', a:''}, {v:'? ', a:''}, {v:'! ', a:''}],
     [{v:'enter', a:'Pular Linha', c:'td-menor'}, {v:'apagar', a:'', c:'td-menor'}, {v:'maiu', a:'Maiúscula', c:'td-menor'}, {v:'minu', a:'Minúscula', c:'td-menor'}, {v:'acento', a:'Acentuação', c:'td-menor'}, {v:'predicao', a:$scope.palavras[0].texto, c:'td-menor'}, {v:'predicao', a:$scope.palavras[1].texto, c:'td-menor'}]
   ];
 
@@ -28,7 +28,7 @@ app.controller("tecladoController", function($scope, $location, dbService){
 
   function pesquisar() {
     // Retira os sinais
-    var split = $scope.frase_total.toLowerCase().replace(/[\'"<>!@#$%&*().,:;\/=?\[\]\\\+\|]+|[-+\s]/g, ' ').replace(/\s+/g, ' ').split(' ');
+    var split = $scope.frase_atual.toLowerCase().replace(/[\'"<>!@#$%&*().,:;\/=?\[\]\\\+\|]+|[-+\s]/g, ' ').replace(/\s+/g, ' ').split(' ');
     var penultima_palavra = '@%';
 
     if (split.length > 1) penultima_palavra = split[split.length - 2];
@@ -60,7 +60,7 @@ app.controller("tecladoController", function($scope, $location, dbService){
         [{v:'O', a:''}, {v:'P', a:''}, {v:'Q', a:''}, {v:'R', a:''}, {v:'S', a:''}, {v:'T', a:''}, {v:'U', a:''}],
         [{v:'V', a:''}, {v:'W', a:''}, {v:'X', a:''}, {v:'Y', a:''}, {v:'Z', a:''}, {v:'Ç', a:''}, {v:' ', a:'Espaço', c:'td-menor'}],
         [{v:'1', a:''}, {v:'2', a:''}, {v:'3', a:''}, {v:'4', a:''}, {v:'5', a:''}, {v:'6', a:''}, {v:'7', a:''}],
-        [{v:'8', a:''}, {v:'9', a:''}, {v:'0', a:''}, {v:'.', a:''}, {v:',', a:''}, {v:'?', a:''}, {v:'!', a:''}],
+        [{v:'8', a:''}, {v:'9', a:''}, {v:'0', a:''}, {v:'. ', a:''}, {v:', ', a:''}, {v:'? ', a:''}, {v:'! ', a:''}],
         [{v:'enter', a:'Pular Linha', c:'td-menor'}, {v:'apagar', a:'', c:'td-menor'}, {v:'maiu', a:'Maiúscula', c:'td-menor'}, {v:'minu', a:'Minúscula', c:'td-menor'}, {v:'acento', a:'Acentuação', c:'td-menor'}, {v:'predicao', a:$scope.palavras[0].texto, c:'td-menor'}, {v:'predicao', a:$scope.palavras[1].texto, c:'td-menor'}]
       ];
     }
@@ -71,7 +71,7 @@ app.controller("tecladoController", function($scope, $location, dbService){
         [{v:'o', a:''}, {v:'p', a:''}, {v:'q', a:''}, {v:'r', a:''}, {v:'s', a:''}, {v:'t', a:''}, {v:'u', a:''}],
         [{v:'v', a:''}, {v:'w', a:''}, {v:'x', a:''}, {v:'y', a:''}, {v:'z', a:''}, {v:'ç', a:''}, {v:' ', a:'Espaço', c:'td-menor'}],
         [{v:'1', a:''}, {v:'2', a:''}, {v:'3', a:''}, {v:'4', a:''}, {v:'5', a:''}, {v:'6', a:''}, {v:'7', a:''}],
-        [{v:'8', a:''}, {v:'9', a:''}, {v:'0', a:''}, {v:'.', a:''}, {v:',', a:''}, {v:'?', a:''}, {v:'!', a:''}],
+        [{v:'8', a:''}, {v:'9', a:''}, {v:'0', a:''}, {v:'. ', a:''}, {v:', ', a:''}, {v:'? ', a:''}, {v:'! ', a:''}],
         [{v:'enter', a:'Pular Linha', c:'td-menor'}, {v:'apagar', a:'', c:'td-menor'}, {v:'maiu', a:'Maiúscula', c:'td-menor'}, {v:'minu', a:'Minúscula', c:'td-menor'}, {v:'acento', a:'Acentuação', c:'td-menor'}, {v:'predicao', a:$scope.palavras[0].texto, c:'td-menor'}, {v:'predicao', a:$scope.palavras[1].texto, c:'td-menor'}]
       ];
     }
@@ -81,7 +81,7 @@ app.controller("tecladoController", function($scope, $location, dbService){
         [{v:'Ó', a:''}, {v:'ó', a:''}, {v:'õ', a:''}, {v:'Õ', a:''}, {v:'ô', a:''}, {v:'Õ', a:''}, {v:'Ê', a:''}],
         [{v:'ê', a:''}, {v:'', a:''}, {v:'', a:''}, {v:'', a:''}, {v:'', a:''}, {v:'', a:''}, {v:' ', a:'Espaço', c:'td-menor'}],
         [{v:'1', a:''}, {v:'2', a:''}, {v:'3', a:''}, {v:'4', a:''}, {v:'5', a:''}, {v:'6', a:''}, {v:'7', a:''}],
-        [{v:'8', a:''}, {v:'9', a:''}, {v:'0', a:''}, {v:'.', a:''}, {v:',', a:''}, {v:'?', a:''}, {v:'!', a:''}],
+        [{v:'8', a:''}, {v:'9', a:''}, {v:'0', a:''}, {v:'. ', a:''}, {v:', ', a:''}, {v:'? ', a:''}, {v:'! ', a:''}],
         [{v:'enter', a:'Pular Linha', c:'td-menor'}, {v:'apagar', a:'', c:'td-menor'}, {v:'maiu', a:'Maiúscula', c:'td-menor'}, {v:'minu', a:'Minúscula', c:'td-menor'}, {v:'acento', a:'Acentuação', c:'td-menor'}, {v:'predicao', a:$scope.palavras[0].texto, c:'td-menor'}, {v:'predicao', a:$scope.palavras[1].texto, c:'td-menor'}]
       ];
     }
@@ -102,6 +102,12 @@ app.controller("tecladoController", function($scope, $location, dbService){
 
     $scope.frase_total = split.join(" ");
     $scope.frase_total += " ";
+    // Salva o dado inserido na frase atual
+    $scope.frase_atual = split.join(" ");
+    $scope.frase_atual += " ";
+
+    $scope.$apply();
+
     $scope.voltar();
   }
 
@@ -126,7 +132,7 @@ app.controller("tecladoController", function($scope, $location, dbService){
       if ($scope.moment=="linha") pula_linha()
       else pula_coluna()
       $scope.$apply();
-    }, 2000);
+    }, 1000);
   }
 
   iniciar_timer();
@@ -144,16 +150,19 @@ app.controller("tecladoController", function($scope, $location, dbService){
 
   $scope.adicionar_tecla = function(a) {
     new Audio("static/images/clique.mp3").play();
-    console.log($scope.linha);
-    console.log($scope.coluna);
+
     if ($scope.moment == "linha") {
       $scope.moment = "coluna";
     } else if ($scope.moment == "coluna") {
-      var escolhida = $scope.alfabeto[$scope.linha][$scope.coluna].v
+      var escolhida = $scope.alfabeto[$scope.linha][$scope.coluna].v;
       if (escolhida == 'enter') {
         var tecla = "\n";
 
         $scope.frase_total += tecla;
+        // Salva o dado inserido na frase atual
+        $scope.frase_atual = tecla;
+        $scope.frase_atual += " ";
+
         $scope.moment = "linha";
 
         if (tecla == ". " || tecla == ", "){
@@ -170,6 +179,8 @@ app.controller("tecladoController", function($scope, $location, dbService){
       } else {
         var tecla = $scope.alfabeto[$scope.linha][$scope.coluna].v;
         $scope.frase_total += tecla;
+        // Salva o dado inserido na frase atual
+        $scope.frase_atual += tecla;
 
         $scope.voltar();
 
@@ -182,27 +193,38 @@ app.controller("tecladoController", function($scope, $location, dbService){
       $scope.moment = "linha";
     }
 
-    $scope.salvar_txt();
+    $scope.$apply();
   }
 
   $scope.backspace = function() {
     new Audio("static/images/clique.mp3").play();
     $scope.frase_total = $scope.frase_total.substring(0,$scope.frase_total.length - 1);
+
+    // Salva o dado inserido na frase atual
+    $scope.frase_atual =  $scope.frase_atual.substring(0,$scope.frase_total.length - 1);
   }
 
   function salvar() {
     // Só funciona com o banco atual, presume que o delimitador de início de frase está salvo na primeira posição
-    var anterior = 1, split = $scope.frase_total.toLowerCase().replace(/[\'"<>!@#$%&*().,:;\/=?\[\]\\\+\|]+|[-+\s]/g, ' ').replace(/\s+/g, ' ').replace(/\s+$/g, '').split(' ');
+    var anterior = 1, split = $scope.frase_atual.toLowerCase().replace(/[\'"<>!@#$%&*().,:;\/=?\[\]\\\+\|]+|[-+\s]/g, ' ').replace(/\s+/g, ' ').replace(/\s+$/g, '').split(' ');
+
+    if ($scope.frase_atual == '') return;
 
     split.forEach(function(i){
       dbService.runAsync(`SELECT * FROM palavra WHERE texto = '${i}';`, function(data){
         if (data.length){
           dbService.runAsync(`UPDATE palavra SET ocorrencias = ${data[0]}.ocorrencias + 1} WHERE id = ${data[0].id}`, function(){});
-          dbService.runAsync(`INSERT INTO ocorrencia (primaria_id, secundaria_id, data) VALUES(${anterior}, ${data[0].id}, '${new Date().toISOString()}');`, function(){});
+          dbService.runAsync(`INSERT INTO ocorrencia (primaria_id, secundaria_id, data) VALUES(${anterior}, ${data[0].id}, '${new Date().toISOString()}');`, function(data){
+            $scope.frase_atual = '';
+            console.log(data);
+          });
           anterior = data[0].id;
         }else{
           dbService.runAsync(`INSERT INTO palavra (texto, ocorrencias, data) VALUES('${i}',1,'${new Date().toISOString()}');`, function(data){
-            dbService.runAsync(`INSERT INTO ocorrencia (primaria_id, secundaria_id, data) VALUES(${anterior}, ${data}, '${new Date().toISOString()}');`, function(){});
+            dbService.runAsync(`INSERT INTO ocorrencia (primaria_id, secundaria_id, data) VALUES(${anterior}, ${data}, '${new Date().toISOString()}');`, function(data){
+              $scope.frase_atual = '';
+              console.log(data);
+            });
             anterior = data;
           });
         }
@@ -210,7 +232,22 @@ app.controller("tecladoController", function($scope, $location, dbService){
     });
   }
 
-  $scope.salvar_txt = function() {
+  $scope.$watch('coluna', (novo, antigo) => {
+    $(`td[linha=${$scope.linha}]`).css("background-color", "#baa17e");
+    $("th[data-id='coluna']").removeClass("ativo");
+    $(`th[coluna=${$scope.coluna}]`).addClass("ativo");
+    $(`td[linha=${$scope.linha}][coluna=${$scope.coluna}]`).css("background-color", "#ddc6a6");
+  });
+
+  $scope.$watch('linha', (novo, antigo) => {
+    $("td").css("background-color", "#EFEFEF");
+    $("th[scope='row']").removeClass("ativo");
+    $(`th[linha=${$scope.linha}]`).addClass("ativo");
+    $(`td[linha=${$scope.linha}]`).css("background-color", "#baa17e");
+    $(`td[linha=${$scope.linha}][coluna=${$scope.coluna}]`).css("background-color", "#e8d1b2");
+  });
+
+  $scope.$watch('frase_atual', (nova, antiga) => {
     fs.readFile('texto.txt', function read(err, dados) {
       if (err) throw err;
       dados = $scope.frase_total;
@@ -221,21 +258,14 @@ app.controller("tecladoController", function($scope, $location, dbService){
     $("textarea").scrollTop($("textarea")[0].scrollHeight);
 
     pesquisar();
+  })
+
+  $scope.salvamento_automatico = function() {
+    let frase = $scope.frase_total.replace(/\s+/g, '');
+
+    if (frase[frase.length-1] == '.' || frase[frase.length-1] == ',') {
+      salvar();
+    }
   }
-
-  $scope.$watch('coluna', (antigo, novo) => {
-    $(`td[linha=${$scope.linha}]`).css("background-color", "#baa17e");
-    $("th[data-id='coluna']").removeClass("ativo");
-    $(`th[coluna=${$scope.coluna}]`).addClass("ativo");
-    $(`td[linha=${$scope.linha}][coluna=${$scope.coluna}]`).css("background-color", "#ddc6a6");
-  });
-
-  $scope.$watch('linha', (antigo, novo) => {
-    $("td").css("background-color", "#EFEFEF");
-    $("th[scope='row']").removeClass("ativo");
-    $(`th[linha=${$scope.linha}]`).addClass("ativo");
-    $(`td[linha=${$scope.linha}]`).css("background-color", "#baa17e");
-    $(`td[linha=${$scope.linha}][coluna=${$scope.coluna}]`).css("background-color", "#e8d1b2");
-  });
 
 });

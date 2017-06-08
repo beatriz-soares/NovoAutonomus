@@ -134,7 +134,6 @@ app.controller("tecladoController", function($scope, $location, dbService){
 
   receiver.on('blinks', (dados)=>{
     if(dados.topic=='blink' && dados.tempo>0.4){
-
       $scope.adicionar_tecla();
     } else if (dados.topic=='close') {
       clearInterval($scope.timer);
@@ -176,7 +175,7 @@ app.controller("tecladoController", function($scope, $location, dbService){
       $scope.moment = "linha";
     }
 
-    $scope.$apply();
+    $scope.salvar_txt();
   }
 
   $scope.backspace = function() {
@@ -204,18 +203,18 @@ app.controller("tecladoController", function($scope, $location, dbService){
     });
   }
 
-  // Escuta a variável frase_total, se alterada faz o especificado
-  $scope.$watch('frase_total', function(novo, velho) {
+  $scope.salvar_txt = function() {
     fs.readFile('texto.txt', function read(err, dados) {
       if (err) throw err;
-      dados = dados.slice(0, -1);
-      fs.writeFile('texto.txt', dados, function (err) {});
+      dados = $scope.frase_total;
+      fs.writeFile('texto.txt', dados, function (err) {
+      });
     });
 
     $("textarea").scrollTop($("textarea")[0].scrollHeight);
 
     pesquisar();
-  }, true);
+  }
 
   $scope.$watch('coluna', (antigo, novo) => {
     $(`td[linha=${$scope.linha}]`).css("background-color", "#baa17e");

@@ -61,7 +61,7 @@ app.controller("tecladoController", function($scope, $location, dbService){
         [{v:'V', a:''}, {v:'W', a:''}, {v:'X', a:''}, {v:'Y', a:''}, {v:'Z', a:''}, {v:'Ç', a:''}, {v:' ', a:'Espaço', c:'td-menor'}],
         [{v:'1', a:''}, {v:'2', a:''}, {v:'3', a:''}, {v:'4', a:''}, {v:'5', a:''}, {v:'6', a:''}, {v:'7', a:''}],
         [{v:'8', a:''}, {v:'9', a:''}, {v:'0', a:''}, {v:'.', a:''}, {v:',', a:''}, {v:'?', a:''}, {v:'!', a:''}],
-        [{v:'enter', a:'Pular Linha', c:'td-menor'}, {v:'apagar', a:'', c:'td-menor'}, {v:'desistir_da_linha', a:'Desistir da linha', c:'td-menor'}, {v:'maiúscula', a:'Maiúscula', c:'td-menor'}, {v:'minúscula', a:'Minúscula', c:'td-menor'}, {v:'acentuacao', a:'Acentuação', c:'td-menor'}, {v:$scope.palavras[0].texto, a:$scope.palavras[0].texto, c:'td-menor'}]
+        [{v:'enter', a:'Pular Linha', c:'td-menor'}, {v:'apagar', a:'', c:'td-menor'}, {v:'desistir_da_linha', a:'Desistir da linha', c:'td-menor'}, {v:'maiúscula', a:'Maiúscula', c:'td-menor'}, {v:'minúscula', a:'Minúscula', c:'td-menor'}, {v:'acentuacao', a:'Acentuação', c:'td-menor'}, {v:'add_palavra', a:$scope.palavras[0].texto, c:'td-menor'}]
       ];
     }
     else if (atual == "minu"){
@@ -72,7 +72,7 @@ app.controller("tecladoController", function($scope, $location, dbService){
         [{v:'v', a:''}, {v:'w', a:''}, {v:'x', a:''}, {v:'y', a:''}, {v:'z', a:''}, {v:'ç', a:''}, {v:' ', a:'Espaço', c:'td-menor'}],
         [{v:'1', a:''}, {v:'2', a:''}, {v:'3', a:''}, {v:'4', a:''}, {v:'5', a:''}, {v:'6', a:''}, {v:'7', a:''}],
         [{v:'8', a:''}, {v:'9', a:''}, {v:'0', a:''}, {v:'.', a:''}, {v:',', a:''}, {v:'?', a:''}, {v:'!', a:''}],
-        [{v:'enter', a:'Pular Linha', c:'td-menor'}, {v:'apagar', a:'', c:'td-menor'}, {v:'desistir_da_linha', a:'Desistir da linha', c:'td-menor'}, {v:'maiúscula', a:'Maiúscula', c:'td-menor'}, {v:'minúscula', a:'Minúscula', c:'td-menor'}, {v:'acentuacao', a:'Acentuação', c:'td-menor'}, {v:$scope.palavras[0].texto, a:$scope.palavras[0].texto, c:'td-menor'}]
+        [{v:'enter', a:'Pular Linha', c:'td-menor'}, {v:'apagar', a:'', c:'td-menor'}, {v:'desistir_da_linha', a:'Desistir da linha', c:'td-menor'}, {v:'maiúscula', a:'Maiúscula', c:'td-menor'}, {v:'minúscula', a:'Minúscula', c:'td-menor'}, {v:'acentuacao', a:'Acentuação', c:'td-menor'}, {v:'add_palavra', a:$scope.palavras[0].texto, c:'td-menor'}]
       ];
     }
     else if (atual == "acento"){
@@ -119,7 +119,7 @@ app.controller("tecladoController", function($scope, $location, dbService){
 
 
   function pula_coluna () {
-    if ($scope.coluna++ > 7) $scope.coluna=0;
+    if (++$scope.coluna > 7) $scope.coluna=0;
   };
 
   function iniciar_timer() {
@@ -158,6 +158,8 @@ app.controller("tecladoController", function($scope, $location, dbService){
           salvar();
           $scope.zerar("maiu");
         }
+      } else if ($scope.alfabeto[$scope.linha][$scope.coluna].v == 'add_palavra') {
+        $scope.add_palavra($scope.alfabeto[$scope.linha][$scope.coluna].a);
       } else if ($scope.alfabeto[$scope.linha][$scope.coluna].v == 'apagar') {
         $scope.backspace();
       } else {

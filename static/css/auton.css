@@ -349,12 +349,11 @@ th[data-id="coluna"]{
 }
 
 .td-menor{
-  font-size: 38px;
+  font-size: 28px;
   max-width: 20px;
-
 }
 
 .td-acentuacao{
-  font-size: 38px;
+  font-size: 28px;
   max-width: 25px;
 }

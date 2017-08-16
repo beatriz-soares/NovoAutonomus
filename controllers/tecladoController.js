@@ -21,7 +21,6 @@ app.controller("tecladoController", function($scope, $location, dbService){
                       ['V', 'W', 'X', 'Y', 'Z', 'Ç', ' '],
                       ['1', '2', '3', '4', '5', '6', '7'],
                       ['8', '9', '0', '. ', ', ', '? ', '! ']];
-    $scope.moment = "linha";
 
     // Retirar bug
     // dbService.runAsync(`SELECT * FROM ocorrencias`, function(){});
@@ -83,10 +82,6 @@ app.controller("tecladoController", function($scope, $location, dbService){
                             ['1', '2', '3', '4', '5', '6', '7'],
                             ['8', '9', '0', '. ', ', ', '? ', '! ']];
         }
-        else if (atual == "linha"){
-          $scope.moment = "linha"
-          pula_linha();
-        }
     }
     $scope.voltar = function() {
         $scope.zerar("minu");
@@ -115,62 +110,14 @@ app.controller("tecladoController", function($scope, $location, dbService){
         });
     }
 
-    function pula_linha() {
-      if ($scope.moment == "linha") {
-          $scope.linha+=1;
-        if ($scope.linha>6)
-          $scope.linha=1;
-        muda = $scope.linha;
-        $("td").css("background-color", "#EFEFEF");
-        $("th[scope='row']").removeClass("ativo");
-        $("th[linha="+ muda + "]").addClass("ativo");
-        $("td[linha="+ muda + "][coluna="+$scope.coluna+"]").css("background-color", "#ddc6a6");
+  $scope.adicionar_tecla = function(linha, coluna) {
+      new Audio("static/images/clique.mp3").play();
 
-        setTimeout(pula_linha, 1000);
-        }
-
-     };
-
-     pula_linha();
-
-   $scope.escolhe_linha = function() {
-     $scope.moment = "coluna";
-     pula_coluna();
-   };
-
-   $scope.escolhe_coluna = function() {
-     $scope.moment = "";
-   };
-
-
-    function pula_coluna (muda) {
-     if ($scope.moment == "coluna") {
-         $scope.coluna+=1;
-       if ($scope.coluna>7)
-         $scope.coluna=1;
-       muda = $scope.coluna;
-        $("td").css("background-color", "#EFEFEF");
-        $("th[data-id='coluna']").removeClass("ativo");
-        $("th[coluna="+ muda + "]").addClass("ativo");
-        $("td[linha="+ $scope.linha + "][coluna="+muda+"]").css("background-color", "#ddc6a6");
-
-        setTimeout(pula_coluna, 1000);
-      }
-    };
-
-  $scope.adicionar_tecla = function(a) {
-    new Audio("static/images/clique.mp3").play();
-    if ($scope.moment == "linha"){
-      $scope.escolhe_linha();
-    }
-    else if ($scope.moment == "coluna"){
-      $scope.escolhe_coluna();
-
-      if (a == 'enter'){
+      if (linha == 'enter'){
         var tecla = "\n";
       }
       else{
-        var tecla = $scope.alfabeto[$scope.linha-1][$scope.coluna-1];
+        var tecla = $scope.alfabeto[linha][coluna] ;
       }
 
       $scope.frase_total += tecla;
@@ -186,13 +133,10 @@ app.controller("tecladoController", function($scope, $location, dbService){
         $scope.voltar();
         pesquisar();
         $("textarea").scrollTop($("textarea")[0].scrollHeight);
-        $scope.moment = "linha";
-        pula_linha();
-        if (tecla == ". " || tecla == ", "){
+        if (tecla == ". " || tecla == ", "|| tecla == "? "|| tecla == "! "){
           salvar();
           $scope.zerar("maiu");
         }
-      }
     }
 
   $scope.backspace = function() {

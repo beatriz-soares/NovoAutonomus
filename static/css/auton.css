@@ -92,15 +92,6 @@ body{
 .btn-controle{
   font-size: 50px;
 }
-
-#dashboard .md-headline{
-  margin-top: 10px;
-  font-size:40px !important;
-}
-#dashboard .md-subhead{
-  margin-top: 10px;
-  font-size:25px !important;
-}
 .icon-lg{
   width: 130px;
   height: auto;
@@ -136,20 +127,6 @@ md-tabs.md-default-theme md-ink-bar, md-tabs md-ink-bar {
   top: 80px;
   height: 4px;
 }
-*{
-    cursor: none !important;
-}
-
-#cursor{
-  position: fixed;
-  height: 50px;
-  width: 50px;
-  border-radius: 30px;
-  background-color: red;
-  z-index: 100000;
-  opacity: 0.5;
-  pointer-events: none;
-}
 
 md-progress-circular.md-default-theme path, md-progress-circular path {
   stroke: rgb(55, 181, 46);
@@ -170,9 +147,6 @@ md-progress-circular.md-default-theme path, md-progress-circular path {
   outline: none;
   border: none;
   background-color: rgb(63,81,181) !important;
-}
-#tab-frases{
-  margin-top: -86px;
 }
 
 .coluna-frases{
@@ -240,14 +214,6 @@ a, md-tabs.md-default-theme .md-tab.md-active, md-tabs .md-tab.md-active, md-tab
     display: inline;
 }
 
-md-prev-button, md-next-button{
-  width: 100px !important;
-}
-
-md-tabs-canvas{
-  margin: 0 100px !important;
-}
-
 #link-home{
   position: fixed;
   top: 0;
@@ -288,9 +254,14 @@ md-prev-button:hover{
   background-color: rgb(63,81,181) !important;
 }
 td{
-  margin: 20px;
-  font-size: 50px;
-  text-align: center;
+  font-size: 50px !important;
+  text-align: center !important;
+  vertical-align: middle !important;
+  height: 100px;
+}
+
+td.predicao{
+
 }
 .btn-toolbar{
 }
@@ -326,28 +297,11 @@ th[data-id="coluna"]{
   background-color: #00b3b3;
 }
 
-/* Centralizando a vistualização da Coluna */
-.coluna{
-  width: 100%;
-  float:left;
-  text-align:center;
-  line-height:125px;
-  font-size: 20px;
-}
-
-/* Centralizando a vistualização da Linha */
-.linha{
-  width: 100%;
-  float:left;
-  text-align:center;
-  line-height: 100px;
-}
-
 .ok{
   height: 320px !important;
 }
 .conteudo{
-  padding: 80px;
+  padding: 10px;
 }
 .marker{
   position: fixed;

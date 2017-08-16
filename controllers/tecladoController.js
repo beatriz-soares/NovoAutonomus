@@ -2,7 +2,7 @@
 
 app.controller("tecladoController", function($scope, $location, dbService){
     var pupil = require('pupil-remote');
-
+    var child_process_1 = require("child_process");
     var receiver = new pupil.MessageReceiver('10.4.5.117', 35435);
 
     receiver.on('blinks', (dados)=>{
@@ -217,6 +217,10 @@ app.controller("tecladoController", function($scope, $location, dbService){
       });
     });
 
+  }
+
+  $scope.falar = function(){
+      responsiveVoice.speak($scope.frase_total, "Brazilian Portuguese Female");
   }
 
       function salvar() {

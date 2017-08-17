@@ -42,7 +42,7 @@
               <td linha=3 coluna=5 class="btn btn-default col-md-1" ng-click="adicionar_tecla(2, 4)">{{alfabeto[2][4]}}</td>
               <td linha=3 coluna=6 class="btn btn-default col-md-1" ng-click="adicionar_tecla(2, 5)">{{alfabeto[2][5]}}</td>
               <td linha=3 coluna=7 class="btn btn-default col-md-1" ng-click="adicionar_tecla(2, 6)">{{alfabeto[2][6]}}</td>
-              <td class="btn btn-info col-md-1 predicao" ng-click="add_palavra(palavras[1].texto)">{{palavras[2].texto}}</td>
+              <td class="btn btn-danger col-md-1" ng-click="backspace()">Apagar</td>
 
             </tr>
             <tr>
@@ -55,20 +55,11 @@
               <td linha=4 coluna=7 class="btn btn-default col-md-1" ng-click="adicionar_tecla(3, 6)" style="font-size: 25px;" >Espaço</td>
               <td class="btn btn-warning col-md-1" ng-click="adicionar_tecla('enter', 6)">Enter</td>
               </tr>
-              <tr>
-                <td linha=5 coluna=1 class="btn btn-default col-md-1" ng-click="adicionar_tecla(4, 0)">{{alfabeto[4][0]}}</td>
-                <td linha=5 coluna=2 class="btn btn-default col-md-1" ng-click="adicionar_tecla(4, 1)">{{alfabeto[4][1]}}</td>
-                <td linha=5 coluna=3 class="btn btn-default col-md-1" ng-click="adicionar_tecla(4, 2)">{{alfabeto[4][2]}}</td>
-                <td linha=5 coluna=4 class="btn btn-default col-md-1" ng-click="adicionar_tecla(4, 3)">{{alfabeto[4][3]}}</td>
-                <td linha=5 coluna=5 class="btn btn-default col-md-1" ng-click="adicionar_tecla(4, 4)">{{alfabeto[4][4]}}</td>
-                <td linha=5 coluna=6 class="btn btn-default col-md-1" ng-click="adicionar_tecla(4, 5)">{{alfabeto[4][5]}}</td>
-                <td linha=5 coluna=7 class="btn btn-default col-md-1" ng-click="adicionar_tecla(4, 6)">{{alfabeto[4][6]}}</td>
-                <td class="btn btn-danger col-md-1" ng-click="backspace()">Apagar</td>
-                </tr>
+              
                 <tr>
-                  <td linha=6 coluna=1 class="btn btn-default col-md-1" ng-click="adicionar_tecla(5, 0)">{{alfabeto[5][0]}}</td>
-                  <td linha=6 coluna=2 class="btn btn-default col-md-1" ng-click="adicionar_tecla(5, 1)">{{alfabeto[5][1]}}</td>
-                  <td linha=6 coluna=3 class="btn btn-default col-md-1" ng-click="adicionar_tecla(5, 2)">{{alfabeto[5][2]}}</td>
+                  <td class="btn btn-warning col-md-1" ng-click="zerar('maiu')">Maiúscula</td>
+                  <td class="btn btn-warning col-md-1" ng-click="zerar('minu')">Minúscula</td>
+                  <td class="btn btn-warning col-md-1" ng-click="zerar('acento')">Acentos</td>
                   <td linha=6 coluna=4 class="btn btn-default col-md-1" ng-click="adicionar_tecla(5, 3)">{{alfabeto[5][3]}}</td>
                   <td linha=6 coluna=5 class="btn btn-default col-md-1" ng-click="adicionar_tecla(5, 4)">{{alfabeto[5][4]}}</td>
                   <td linha=6 coluna=6 class="btn btn-default col-md-1" ng-click="adicionar_tecla(5, 5)">{{alfabeto[5][5]}}</td>

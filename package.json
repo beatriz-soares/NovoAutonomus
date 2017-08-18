@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "start": "electron main.js",
-    "configure": "npm rebuild zeromq --runtime=electron --target=$(electron -v)",
+    "configure": "npm rebuild speaker --runtime=electron --target=$(electron -v)",
     "win32": "electron-packager . AutonomusGUI --platform=win32 --arch=ia32",
     "win64": "electron-packager . AutonomusGUI --platform=win32 --arch=x64",
     "linux32": "electron-packager . AutonomusGUI --platform=linux --arch=ia32",
@@ -31,7 +31,10 @@
     "events": "~1.1.1",
     "jquery": "^3.2.1",
     "pupil-remote": "^0.1.0",
+    "speaker": "^0.3.0",
     "sqlite-sync": "^0.3.6",
-    "watchjs": "0.0.0"
+    "watchjs": "0.0.0",
+    "wav": "^1.0.1",
+    "xmlbuilder": "^9.0.4"
   }
 }

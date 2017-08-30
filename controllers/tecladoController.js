@@ -21,7 +21,7 @@ app.controller("tecladoController", function($scope, $location, dbService){
                       ['O', 'P', 'Q', 'R', 'S', 'T', 'U'],
                       ['V', 'W', 'X', 'Y', 'Z', 'Ç', ' '],
                       ['1', '2', '3', '4', '5', '6', '7'],
-                      ['8', '9', '0', '. ', ', ', '? ', '! ']];
+                      ['8', '9', '0', '. ', ', ', '- ', '! ']];
 
     // Retirar bug
     // dbService.runAsync(`SELECT * FROM ocorrencias`, function(){});
@@ -65,7 +65,7 @@ app.controller("tecladoController", function($scope, $location, dbService){
                             ['O', 'P', 'Q', 'R', 'S', 'T', 'U'],
                             ['V', 'W', 'X', 'Y', 'Z', 'Ç', ' '],
                             ['1', '2', '3', '4', '5', '6', '7'],
-                            ['8', '9', '0', '. ', ', ', '? ', '! ']];
+                            ['8', '9', '0', '. ', ', ', '- ', '! ']];
         }
         else if (atual == "minu"){
           $scope.alfabeto = [['a', 'b', 'c', 'd', 'e', 'f', 'g'],
@@ -73,7 +73,7 @@ app.controller("tecladoController", function($scope, $location, dbService){
                             ['o', 'p', 'q', 'r', 's', 't', 'u'],
                             ['v', 'w', 'x', 'y', 'z', 'ç', ' '],
                             ['1', '2', '3', '4', '5', '6', '7'],
-                            ['8', '9', '0', '. ', ', ', '? ', '! ']];
+                            ['8', '9', '0', '. ', ', ', '- ', '! ']];
         }
         else if (atual == "acento"){
           $scope.alfabeto = [['á', 'à', 'ã', 'â', 'À', 'Á', 'Ã'],
@@ -81,7 +81,7 @@ app.controller("tecladoController", function($scope, $location, dbService){
                             ['Ó', 'ó', 'õ', 'Õ', 'ô', 'Õ', 'Ê'],
                             ['ê', '1', '2', '3', '4', '5', ' '],
                             ['6', '7', '8', '9', '0', '-', ''],
-                            ['', '', '', '. ', ', ', '? ', '! ']];
+                            ['', '', '', '. ', ', ', '- ', '! ']];
         }
     }
     $scope.voltar = function() {

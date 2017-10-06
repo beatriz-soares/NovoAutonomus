@@ -9,7 +9,7 @@ var app = angular.module('cdg', ['ngRoute'])
     };
 }).config(function($routeProvider){
 	$routeProvider.when("/", {
-		templateUrl : "views/novo_teclado.html",
+		templateUrl : "views/menu_monitoramento.html",
 		controller: "tecladoController"
 	});
 });

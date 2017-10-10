@@ -1,7 +1,36 @@
-body{
-  padding: 10px;
+.form-inputs {
+  margin: 15px auto;
+  display: flex;
+  flex-direction: column;
 }
 
-div, input{
-  vertical-align: middle;
+.form-input {
+  width: 100%;
+  padding: 10px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  border-bottom: 1px solid #E5EBF0;
+}
+
+.form-input .input
+{
+    margin-right: 10px;
+}
+
+.descricao
+{
+    font-weight: normal;
+}
+
+.options
+{
+    padding: 10px;
+}
+.form-input div:last-child {
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
 }

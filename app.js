@@ -10,7 +10,7 @@ var app = angular.module('cdg', ['ngRoute'])
 }).config(function($routeProvider){
 	$routeProvider.when("/", {
 		templateUrl : "views/menu_monitoramento.html",
-		controller: "tecladoController"
+		controller: "monitoramentoController"
 	});
 });
 

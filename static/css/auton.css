@@ -34,3 +34,7 @@
     flex: 1;
     justify-content: flex-end;
 }
+
+.form-input:hover{
+    background-color: #f2f2f2;
+}

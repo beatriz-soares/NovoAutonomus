@@ -2,12 +2,12 @@
 
 app.controller("monitoramentoController", function($scope, $location, dbService){
     $scope.frases = [];
+    $scope.imagem_atual = "piscar";
     $scope.atualizar = function(){
+        $scope.gesto = {"titulo": "'Piscar'"};
         var query = "SELECT Frases.frase, Gestos.gesto, Gestos.nome_gif FROM Frases JOIN Gestos ON Frases.gesto=Gestos.id ORDER BY Gestos.id";
         dbService.runAsync(query, function(data){
           $scope.frases = data;
-          console.log("Essas sao as novas frases");
-          console.log($scope.frases);
         });
     };
 
@@ -42,6 +42,13 @@ app.controller("monitoramentoController", function($scope, $location, dbService)
     };
 
     $scope.ilustrar = function(id_imagem){
-        $scope.gesto = {"titulo": "'"+$scope.frases[id_imagem].gesto+"'", "imagem":$scope.frases[id_imagem].nome_gif};
+        $scope.gesto = {"titulo": "'"+$scope.frases[id_imagem].gesto+"'"};
+        // responsiveVoice.speak($scope.frases[id_imagem].frase, "Brazilian Portuguese Female");
+        $scope.imagem_atual = $scope.frases[id_imagem].nome_gif;
     }
+
+    $(".form-input").mouseenter(function(){
+        imagem_id = parseInt($(this).children().eq(0).children().eq(0).attr("id")[6])-1;
+        $("img").attr("src", "static/images/"+$scope.frases[imagem_id].nome_gif+".gif");
+    }).mouseleave(function(){$("img").attr("src", "static/images/"+$scope.imagem_atual+".gif");});
 });

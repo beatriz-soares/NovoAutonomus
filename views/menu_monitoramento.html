@@ -3,13 +3,13 @@
         <div class="col-xs-6">
             <div class="box box-success">
                 <div class="box-header">
-                    <h3 class="box-title">Opções de gestos</h3>
+                    <h3 class="box-title">Opções de Gestos</h3>
                 </div>
                 <div class="box-body">
                     <div class="form-inputs">
                         <div class="form-input">
                             <div class="input">
-                                <input id="input-1" type="checkbox" class="minimal">
+                                <input id="input-1" type="checkbox" class="minimal" ng-click="ilustrar(0)">
                             </div>
                             <div class="label-text">
                                 <label for="input-1">
@@ -20,14 +20,14 @@
                                 </label>
                             </div>
                             <div class="options">
-                                <a href="#" class="btn btn-default" ng-click="teste(frases[0].gesto)">
+                                <a href="#" class="btn btn-default" ng-click="editar(frases[0].gesto)">
                                     <i class="fa fa-edit"></i>
                                 </a>
                             </div>
                         </div>
                         <div class="form-input">
                             <div class="input">
-                                <input id="input-2" type="checkbox" class="minimal">
+                                <input id="input-2" type="checkbox" class="minimal" ng-click="ilustrar(1)">
                             </div>
                             <div class="label-text">
                                 <label for="input-2">
@@ -38,17 +38,17 @@
                                 </label>
                             </div>
                             <div class="options">
-                                <a href="#" class="btn btn-default" ng-click="teste(frases[1].gesto)">
+                                <a href="#" class="btn btn-default" ng-click="editar(frases[1].gesto)">
                                     <i class="fa fa-edit"></i>
                                 </a>
                             </div>
                         </div>
                         <div class="form-input">
                             <div class="input">
-                                <input id="input-2" type="checkbox" class="minimal">
+                                <input id="input-3" type="checkbox" class="minimal" ng-click="ilustrar(2)">
                             </div>
                             <div class="label-text">
-                                <label for="input-2">
+                                <label for="input-3">
                                     {{frases[2].gesto}}<br>
                                     <span class="descricao">
                                         {{frases[2].frase}}
@@ -56,17 +56,17 @@
                                 </label>
                             </div>
                             <div class="options">
-                                <a href="#" class="btn btn-default" ng-click="teste(frases[2].gesto)">
+                                <a href="#" class="btn btn-default" ng-click="editar(frases[2].gesto)">
                                     <i class="fa fa-edit"></i>
                                 </a>
                             </div>
                         </div>
                         <div class="form-input">
                             <div class="input">
-                                <input id="input-2" type="checkbox" class="minimal">
+                                <input id="input-4" type="checkbox" class="minimal" ng-click="ilustrar(3)">
                             </div>
                             <div class="label-text">
-                                <label for="input-2">
+                                <label for="input-4">
                                     {{frases[3].gesto}}<br>
                                     <span class="descricao">
                                         {{frases[3].frase}}
@@ -74,7 +74,25 @@
                                 </label>
                             </div>
                             <div class="options pull-right">
-                                <a href="#" class="btn btn-default pull-right" ng-click="teste(frases[3].gesto)">
+                                <a href="#" class="btn btn-default pull-right" ng-click="editar(frases[3].gesto)">
+                                    <i class="fa fa-edit"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="form-input">
+                            <div class="input">
+                                <input id="input-5" type="checkbox" class="minimal" ng-click="ilustrar(4)">
+                            </div>
+                            <div class="label-text">
+                                <label for="input-5">
+                                    {{frases[4].gesto}}<br>
+                                    <span class="descricao">
+                                        {{frases[4].frase}}
+                                    </span>
+                                </label>
+                            </div>
+                            <div class="options pull-right">
+                                <a href="#" class="btn btn-default pull-right" ng-click="editar(frases[4].gesto)">
                                     <i class="fa fa-edit"></i>
                                 </a>
                             </div>
@@ -82,19 +100,19 @@
                     </div>
                 </div>
                 <!-- /.box-body -->
-                <div class="box-footer">
-                    Opções de mungangas. <a href="#">Mungangas</a>
+                <div class="box-footer" style="color:gray;">
+                    Selecione os gestos ativos durante a sessão.
                 </div>
             </div>
         </div>
         <div class="col-xs-6">
             <div class="box box-success">
                 <div class="box-header">
-                    <h3 class="box-title">Opções de mungangas</h3>
+                    <h3 class="box-title">Demonstração dos Gestos</h3>
                 </div>
                 <div class="box-body text-center">
-                    mostrar vídeozinho bla bla bla <hr>
-                    <img src="static/images/sobrancelha.gif" alt="Mountain View" style="width:200px;height:223px;">
+                    Veja abaixo como o gesto {{gesto.titulo}} é realizado. <hr>
+                    <img src="static/images/{{gesto.imagem}}.gif" style="width:400px;height:500px;">
                 </div>
                 <!-- /.box-body -->
                 <!-- <div class="box-footer">

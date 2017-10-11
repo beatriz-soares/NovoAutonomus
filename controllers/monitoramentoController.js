@@ -2,21 +2,21 @@
 
 app.controller("monitoramentoController", function($scope, $location, dbService){
     $scope.frases = [];
-
     $scope.atualizar = function(){
-        var query = "SELECT Frases.frase, Gestos.gesto FROM Frases JOIN Gestos ON Frases.gesto=Gestos.id";
-        console.log(query);
+        var query = "SELECT Frases.frase, Gestos.gesto, Gestos.nome_gif FROM Frases JOIN Gestos ON Frases.gesto=Gestos.id ORDER BY Gestos.id";
         dbService.runAsync(query, function(data){
           $scope.frases = data;
-          console.log(data);
+          console.log("Essas sao as novas frases");
+          console.log($scope.frases);
         });
     };
+
     $scope.atualizar();
 
-    $scope.teste = function(gesto){
+    $scope.editar = function(gesto){
         swal({
           title: "Modificar Frase",
-          text: "Digite a nova frase para o gesto",
+          text: "Digite a nova frase para o gesto '"+gesto+"'",
           type: "input",
           showCancelButton: true,
           closeOnConfirm: false,
@@ -32,11 +32,16 @@ app.controller("monitoramentoController", function($scope, $location, dbService)
             return false
           }
 
-          var query = "UPDATE Frases SET gesto = NULL WHERE gesto == (SELECT id from Gestos where gesto == '"+gesto+"')"
-          dbService.runAsync(query, function(data){});
-          var query = "INSERT INTO Frases ('frase','gesto') VALUES ('"+inputValue+"', (SELECT id from Gestos where gesto == '"+gesto+"'))"
-          dbService.runAsync(query, function(data){});
+          dbService.runAsync("UPDATE Frases SET frase = '"+inputValue+"' WHERE gesto == (SELECT id from Gestos where gesto == '"+gesto+"')", function(){});
+        //   dbService.runAsync("INSERT INTO Frases ('frase','gesto') VALUES ('"+inputValue+"', (SELECT id from Gestos where gesto == '"+gesto+"'))", function(data){});
+
           swal("OK!", "Nova frase salva: " + inputValue, "success");
+          t = setTimeout("location.reload()",3000);
         });
+
     };
+
+    $scope.ilustrar = function(id_imagem){
+        $scope.gesto = {"titulo": "'"+$scope.frases[id_imagem].gesto+"'", "imagem":$scope.frases[id_imagem].nome_gif};
+    }
 });

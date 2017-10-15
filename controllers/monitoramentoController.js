@@ -21,7 +21,7 @@ app.controller("monitoramentoController", function($scope, $location, dbService)
     receiver.on('blinks', function(dados){
         for (var key in $scope.frases){
           if ($scope.frases[key].nome_gif==dados.topic){
-            if ($("#input-"+(key+1)).is(':checked')){
+            if ($("#input-"+(parseInt(key)+1)).is(':checked')){
               console.log("vai dar play");
             }
           }

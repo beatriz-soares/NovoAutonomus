@@ -69,9 +69,7 @@ cursor.execute(sql)
 # sql = """INSERT INTO Frases ("frase","gesto")
 #      VALUES ("Eu sou Bia", 5)"""
 # cursor.execute(sql)
-
-sql = """DELETE FROM Gestos
-WHERE id=3;"""
+sql = """UPDATE Gestos SET selecionado="checked";"""
 cursor.execute(sql)
 conn.commit()
 conn.close()

@@ -2,16 +2,45 @@
 
 app.controller("monitoramentoController", function($scope, $location, dbService){
     $scope.frases = [];
+    var inicio = true;
     $scope.imagem_atual = ["piscar", "Piscar"];
     $scope.atualizar = function(){
         $scope.gesto = {"titulo": "'Piscar'"};
-        var query = "SELECT Frases.frase, Gestos.gesto, Gestos.nome_gif FROM Frases JOIN Gestos ON Frases.gesto=Gestos.id ORDER BY Gestos.id";
+        var query = "SELECT Frases.frase, Gestos.gesto, Gestos.selecionado, Gestos.nome_gif FROM Frases JOIN Gestos ON Frases.gesto=Gestos.id ORDER BY Gestos.id";
         dbService.runAsync(query, function(data){
           $scope.frases = data;
         });
     };
 
     $scope.atualizar();
+
+    var pupil = require('pupil-remote');
+    var child_process_1 = require("child_process");
+    var receiver = new pupil.MessageReceiver('10.4.5.117', 35435);
+
+    receiver.on('blinks', function(dados){
+        for (var key in $scope.frases){
+          if ($scope.frases[key].nome_gif==dados.topic){
+            if ($("#input-"+(key+1)).is(':checked')){
+              console.log("vai dar play");
+            }
+          }
+        }
+    })
+
+    $scope.checkboxes = function(){
+      if (inicio){
+          for (var i=0; i<$scope.frases.length; i++){
+            $(".descricao").each(function(){
+              if ($(this).text()==$scope.frases[i].frase && $scope.frases[i].selecionado=="checked"){
+                id_input = $(this).parent().attr("for");
+                $("#"+id_input).attr("checked", "checked");
+              }
+            });
+            }
+            inicio = false;
+          }
+      }
 
     $scope.editar = function(gesto){
         swal({
@@ -38,13 +67,21 @@ app.controller("monitoramentoController", function($scope, $location, dbService)
           swal("OK!", "Nova frase salva: " + inputValue, "success");
           t = setTimeout("location.reload()",3000);
         });
-
     };
 
     $scope.ilustrar = function(id_imagem){
+
         $scope.gesto = {"titulo": "'"+$scope.frases[id_imagem].gesto+"'"};
         // responsiveVoice.speak($scope.frases[id_imagem].frase, "Brazilian Portuguese Female");
         $scope.imagem_atual = [$scope.frases[id_imagem].nome_gif, $scope.frases[id_imagem].gesto];
+        if ($("#input-"+(id_imagem+1)).is(':checked')){
+          dbService.runAsync("UPDATE Gestos SET selecionado = 'checked' WHERE gesto\
+                              == '"+$scope.frases[id_imagem].gesto+"'", function(){});
+        }
+        else{
+          dbService.runAsync("UPDATE Gestos SET selecionado = 'false' WHERE gesto\
+                              == '"+$scope.frases[id_imagem].gesto+"'", function(){});
+        }
     }
 
     $(".form-input").mouseenter(function(){

@@ -1,4 +1,4 @@
-<div class="container" style="padding-top: 20px; background: #f2f2f2; height: 100%; width:100%;">
+<div class="container" ng-mouseover="checkboxes()" style="padding-top: 20px; background: #f2f2f2; height: 100%; width:100%;">
     <div class="row">
         <div class="col-xs-6" >
             <div class="box box-success">
@@ -9,14 +9,12 @@
                     <div class="form-inputs">
                         <div class="form-input">
                             <div class="input">
-                                <input id="input-1" data-id="{{frases[0].nome_gif}}" type="checkbox" class="minimal" ng-click="ilustrar(0)">
+                                <input id="input-1" type="checkbox" class="minimal" ng-click="ilustrar(0)">
                             </div>
                             <div class="label-text">
                                 <label for="input-1">
                                     {{frases[0].gesto}}<br>
-                                    <span class="descricao">
-                                    {{frases[0].frase}}
-                                    </span>
+                                    <span class="descricao">{{frases[0].frase}}</span>
                                 </label>
                             </div>
                             <div class="options">
@@ -27,14 +25,12 @@
                         </div>
                         <div class="form-input">
                             <div class="input">
-                                <input id="input-2" data-id="{{frases[1].nome_gif}}" type="checkbox" class="minimal" ng-click="ilustrar(1)">
+                                <input id="input-2" type="checkbox" class="minimal" ng-click="ilustrar(1)">
                             </div>
                             <div class="label-text">
                                 <label for="input-2">
                                     {{frases[1].gesto}}<br>
-                                    <span class="descricao">
-                                    {{frases[1].frase}}
-                                    </span>
+                                    <span class="descricao">{{frases[1].frase}}</span>
                                 </label>
                             </div>
                             <div class="options">
@@ -45,14 +41,12 @@
                         </div>
                         <div class="form-input">
                             <div class="input">
-                                <input id="input-3" data-id="{{frases[2].nome_gif}}" type="checkbox" class="minimal" ng-click="ilustrar(2)">
+                                <input id="input-3" type="checkbox" class="minimal" ng-click="ilustrar(2)">
                             </div>
                             <div class="label-text">
                                 <label for="input-3">
                                     {{frases[2].gesto}}<br>
-                                    <span class="descricao">
-                                        {{frases[2].frase}}
-                                    </span>
+                                    <span class="descricao">{{frases[2].frase}}</span>
                                 </label>
                             </div>
                             <div class="options">
@@ -63,14 +57,12 @@
                         </div>
                         <div class="form-input">
                             <div class="input">
-                                <input id="input-4" data-id="{{frases[3].nome_gif}}" type="checkbox" class="minimal" ng-click="ilustrar(3)">
+                                <input id="input-4" type="checkbox" class="minimal" ng-click="ilustrar(3)">
                             </div>
                             <div class="label-text">
                                 <label for="input-4">
                                     {{frases[3].gesto}}<br>
-                                    <span class="descricao">
-                                        {{frases[3].frase}}
-                                    </span>
+                                    <span class="descricao">{{frases[3].frase}}</span>
                                 </label>
                             </div>
                             <div class="options pull-right">

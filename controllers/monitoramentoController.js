@@ -2,7 +2,7 @@
 
 app.controller("monitoramentoController", function($scope, $location, dbService){
     $scope.frases = [];
-    $scope.imagem_atual = "piscar";
+    $scope.imagem_atual = ["piscar", "Piscar"];
     $scope.atualizar = function(){
         $scope.gesto = {"titulo": "'Piscar'"};
         var query = "SELECT Frases.frase, Gestos.gesto, Gestos.nome_gif FROM Frases JOIN Gestos ON Frases.gesto=Gestos.id ORDER BY Gestos.id";
@@ -44,11 +44,17 @@ app.controller("monitoramentoController", function($scope, $location, dbService)
     $scope.ilustrar = function(id_imagem){
         $scope.gesto = {"titulo": "'"+$scope.frases[id_imagem].gesto+"'"};
         // responsiveVoice.speak($scope.frases[id_imagem].frase, "Brazilian Portuguese Female");
-        $scope.imagem_atual = $scope.frases[id_imagem].nome_gif;
+        $scope.imagem_atual = [$scope.frases[id_imagem].nome_gif, $scope.frases[id_imagem].gesto];
     }
 
     $(".form-input").mouseenter(function(){
         imagem_id = parseInt($(this).children().eq(0).children().eq(0).attr("id")[6])-1;
-        $("img").attr("src", "static/images/"+$scope.frases[imagem_id].nome_gif+".gif");
-    }).mouseleave(function(){$("img").attr("src", "static/images/"+$scope.imagem_atual+".gif");});
+        $("img").parent().html("Veja abaixo como o gesto '" +$scope.frases[imagem_id].gesto+ "\
+              ' é realizado. <hr> <img src='static/images/"+$scope.frases[imagem_id].nome_gif+".gif'\
+              style='width:400px;height:500px;'>");
+    }).mouseleave(function(){
+        $("img").parent().html("Veja abaixo como o gesto '" +$scope.imagem_atual[1]+ "\
+            ' é realizado. <hr> <img src='static/images/"+$scope.imagem_atual[0]+".gif'\
+            style='width:400px;height:500px;'>");
+    });
 });

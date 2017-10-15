@@ -9,7 +9,7 @@
                     <div class="form-inputs">
                         <div class="form-input">
                             <div class="input">
-                                <input id="input-1" type="checkbox" class="minimal" ng-click="ilustrar(0)">
+                                <input id="input-1" data-id="{{frases[0].nome_gif}}" type="checkbox" class="minimal" ng-click="ilustrar(0)">
                             </div>
                             <div class="label-text">
                                 <label for="input-1">
@@ -27,7 +27,7 @@
                         </div>
                         <div class="form-input">
                             <div class="input">
-                                <input id="input-2" type="checkbox" class="minimal" ng-click="ilustrar(1)">
+                                <input id="input-2" data-id="{{frases[1].nome_gif}}" type="checkbox" class="minimal" ng-click="ilustrar(1)">
                             </div>
                             <div class="label-text">
                                 <label for="input-2">
@@ -45,7 +45,7 @@
                         </div>
                         <div class="form-input">
                             <div class="input">
-                                <input id="input-3" type="checkbox" class="minimal" ng-click="ilustrar(2)">
+                                <input id="input-3" data-id="{{frases[2].nome_gif}}" type="checkbox" class="minimal" ng-click="ilustrar(2)">
                             </div>
                             <div class="label-text">
                                 <label for="input-3">
@@ -63,7 +63,7 @@
                         </div>
                         <div class="form-input">
                             <div class="input">
-                                <input id="input-4" type="checkbox" class="minimal" ng-click="ilustrar(3)">
+                                <input id="input-4" data-id="{{frases[3].nome_gif}}" type="checkbox" class="minimal" ng-click="ilustrar(3)">
                             </div>
                             <div class="label-text">
                                 <label for="input-4">
@@ -75,24 +75,6 @@
                             </div>
                             <div class="options pull-right">
                                 <a href="#" class="btn btn-default pull-right" ng-click="editar(frases[3].gesto)">
-                                    <i class="fa fa-edit"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="form-input">
-                            <div class="input">
-                                <input id="input-5" type="checkbox" class="minimal" ng-click="ilustrar(4)">
-                            </div>
-                            <div class="label-text">
-                                <label for="input-5">
-                                    {{frases[4].gesto}}<br>
-                                    <span class="descricao">
-                                        {{frases[4].frase}}
-                                    </span>
-                                </label>
-                            </div>
-                            <div class="options pull-right">
-                                <a href="#" class="btn btn-default pull-right" ng-click="editar(frases[4].gesto)">
                                     <i class="fa fa-edit"></i>
                                 </a>
                             </div>
@@ -112,11 +94,11 @@
                 </div>
                 <div class="box-body text-center">
                     Veja abaixo como o gesto {{gesto.titulo}} é realizado. <hr>
-                    <img src="static/images/{{imagem_atual}}.gif" style="width:400px;height:500px;">
+                    <img src="static/images/{{imagem_atual[0]}}.gif" style="width:400px;height:500px;">
                 </div>
                 <!-- /.box-body -->
                 <!-- <div class="box-footer">
-                    Opções de mungangas. <a href="#">Mungangas</a>
+                    Opções. <a href="#">Opções</a>
                 </div> -->
             </div>
         </div>

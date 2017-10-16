@@ -22,7 +22,7 @@ app.controller("monitoramentoController", function($scope, $location, dbService)
         for (var key in $scope.frases){
           if ($scope.frases[key].nome_gif==dados.topic){
             if ($("#input-"+(parseInt(key)+1)).is(':checked')){
-              console.log("vai dar play");
+              responsiveVoice.speak($scope.frases[key].frase, "Brazilian Portuguese Female");
             }
           }
         }

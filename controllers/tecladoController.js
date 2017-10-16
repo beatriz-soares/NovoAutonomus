@@ -4,6 +4,7 @@ app.controller("tecladoController", function($scope, $location, dbService){
     var pupil = require('pupil-remote');
     var child_process_1 = require("child_process");
     var receiver = new pupil.MessageReceiver('10.4.5.117', 35435);
+    var TTS = require("./services/TTS");
 
     receiver.on('blinks', (dados)=>{
       if(dados.topic=='blink' && dados.tempo>0.4)
@@ -164,7 +165,8 @@ app.controller("tecladoController", function($scope, $location, dbService){
   }
 
   $scope.falar = function(){
-      responsiveVoice.speak($scope.frase_total, "Brazilian Portuguese Female");
+      // responsiveVoice.speak($scope.frase_total, "Brazilian Portuguese Female");
+      TTS.Sintetizador($scope.frase_total);
   }
 
       function salvar() {

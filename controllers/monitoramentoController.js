@@ -15,12 +15,16 @@ app.controller("monitoramentoController", function($scope, $location, dbService)
 
     $scope.atualizar();
 
-    var pupil = require('pupil-remote');
+    var pupil_remote = require('pupil-remote');
     var child_process_1 = require("child_process");
-    var receiver = new pupil.MessageReceiver('10.4.5.117', 35435);
+    var receiver = new pupil_remote.MessageReceiver('127.0.0.1', 50020, 2);
     var TTS = require("./services/TTS");
 
     receiver.on('blinks', function(dados){
+        if(dados['topic'] == 'abrir_boca'){
+          console.log("dando certo");
+        }
+
         for (var key in $scope.frases){
           if ($scope.frases[key].nome_gif==dados.topic){
             if ($("#input-"+(parseInt(key)+1)).is(':checked')){

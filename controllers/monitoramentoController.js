@@ -25,7 +25,7 @@ app.controller("monitoramentoController", function($scope, $location, dbService)
           if ($scope.frases[key].nome_gif==dados.topic){
             if ($("#input-"+(parseInt(key)+1)).is(':checked')){
               console.log("vai dar play");
-              TTS.Sintetizador("Biazinha");
+              TTS.Sintetizador($scope.frases[key].frase);
             }
           }
         }
@@ -73,7 +73,6 @@ app.controller("monitoramentoController", function($scope, $location, dbService)
     };
 
     $scope.ilustrar = function(id_imagem){
-        TTS.Sintetizador("Biazinha");
         $scope.gesto = {"titulo": "'"+$scope.frases[id_imagem].gesto+"'"};
         // responsiveVoice.speak($scope.frases[id_imagem].frase, "Brazilian Portuguese Female");
         $scope.imagem_atual = [$scope.frases[id_imagem].nome_gif, $scope.frases[id_imagem].gesto];

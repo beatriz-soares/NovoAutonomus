@@ -3,6 +3,7 @@
 app.controller("monitoramentoController", function($scope, $location, dbService){
     $scope.frases = [];
     var inicio = true;
+
     $scope.imagem_atual = ["piscar", "Piscar"];
     $scope.atualizar = function(){
         $scope.gesto = {"titulo": "'Piscar'"};
@@ -17,12 +18,14 @@ app.controller("monitoramentoController", function($scope, $location, dbService)
     var pupil = require('pupil-remote');
     var child_process_1 = require("child_process");
     var receiver = new pupil.MessageReceiver('10.4.5.117', 35435);
+    var TTS = require("./services/TTS");
 
     receiver.on('blinks', function(dados){
         for (var key in $scope.frases){
           if ($scope.frases[key].nome_gif==dados.topic){
             if ($("#input-"+(parseInt(key)+1)).is(':checked')){
               console.log("vai dar play");
+              TTS.Sintetizador("Biazinha");
             }
           }
         }
@@ -70,7 +73,7 @@ app.controller("monitoramentoController", function($scope, $location, dbService)
     };
 
     $scope.ilustrar = function(id_imagem){
-
+        TTS.Sintetizador("Biazinha");
         $scope.gesto = {"titulo": "'"+$scope.frases[id_imagem].gesto+"'"};
         // responsiveVoice.speak($scope.frases[id_imagem].frase, "Brazilian Portuguese Female");
         $scope.imagem_atual = [$scope.frases[id_imagem].nome_gif, $scope.frases[id_imagem].gesto];

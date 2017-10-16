@@ -5,7 +5,7 @@ var request = require('request'),
 
 
 exports.Sintetizador = function Sintetizador(texto){
-  var apiKey = "b11dd34c8494499680ddcf28f5cc2a29";
+  var apiKey = "19f7ac156a9240118097753f3e076eaa";
     var ssml_doc = xmlbuilder.create('speak')
         .att('version', '1.0')
         .att('xml:lang', 'pt-BR')

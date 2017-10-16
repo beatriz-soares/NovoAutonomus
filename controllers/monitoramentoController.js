@@ -3,7 +3,7 @@
 app.controller("monitoramentoController", function($scope, $location, dbService){
     $scope.frases = [];
     var inicio = true;
-
+    var fs = require('fs');
     $scope.imagem_atual = ["piscar", "Piscar"];
     $scope.atualizar = function(){
         $scope.gesto = {"titulo": "'Piscar'"};
@@ -21,15 +21,11 @@ app.controller("monitoramentoController", function($scope, $location, dbService)
     var TTS = require("./services/TTS");
 
     receiver.on('blinks', function(dados){
-        if(dados['topic'] == 'abrir_boca'){
-          console.log("dando certo");
-        }
 
         for (var key in $scope.frases){
           if ($scope.frases[key].nome_gif==dados.topic){
             if ($("#input-"+(parseInt(key)+1)).is(':checked')){
-              console.log("vai dar play");
-              TTS.Sintetizador($scope.frases[key].frase);
+              new Audio(dados.topic+'.wav').play();
             }
           }
         }
@@ -49,7 +45,7 @@ app.controller("monitoramentoController", function($scope, $location, dbService)
           }
       }
 
-    $scope.editar = function(gesto){
+    $scope.editar = function(gesto, nome_gif){
         swal({
           title: "Modificar Frase",
           text: "Digite a nova frase para o gesto '"+gesto+"'",
@@ -68,11 +64,13 @@ app.controller("monitoramentoController", function($scope, $location, dbService)
             return false
           }
 
+          TTS.Sintetizador(inputValue, nome_gif);
+
           dbService.runAsync("UPDATE Frases SET frase = '"+inputValue+"' WHERE gesto == (SELECT id from Gestos where gesto == '"+gesto+"')", function(){});
         //   dbService.runAsync("INSERT INTO Frases ('frase','gesto') VALUES ('"+inputValue+"', (SELECT id from Gestos where gesto == '"+gesto+"'))", function(data){});
 
           swal("OK!", "Nova frase salva: " + inputValue, "success");
-          t = setTimeout("location.reload()",3000);
+          t = setTimeout("location.reload()",10000);
         });
     };
 

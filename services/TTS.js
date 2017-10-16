@@ -4,7 +4,7 @@ var request = require('request'),
     fs = require('fs');
 
 
-exports.Sintetizador = function Sintetizador(texto){
+exports.Sintetizador = function Sintetizador(texto, titulo){
   var apiKey = "19f7ac156a9240118097753f3e076eaa";
     var ssml_doc = xmlbuilder.create('speak')
         .att('version', '1.0')
@@ -43,8 +43,8 @@ exports.Sintetizador = function Sintetizador(texto){
                     if (err || resp.statusCode != 200) {
                         console.log(err, resp.body);
                     } else {
-                      fs.writeFile('sample.wav', speak_data, function(err) {
-                        new Audio("sample.wav").play();
+                      fs.writeFile(titulo+'.wav', speak_data, function(err) {
+                        new Audio(titulo+'.wav').play();
                       });
                     }
                 });

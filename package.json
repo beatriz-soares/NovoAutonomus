@@ -31,7 +31,6 @@
     "events": "~1.1.1",
     "jquery": "^3.2.1",
     "pupil-remote": "^0.1.0",
-    "speaker": "^0.3.0",
     "sqlite-sync": "^0.3.6",
     "watchjs": "0.0.0",
     "wav": "^1.0.1",

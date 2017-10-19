@@ -31,6 +31,25 @@ app.controller("monitoramentoController", function($scope, $location, dbService)
         }
     })
 
+    $scope.calibrar = function(){
+        
+        swal({
+              title: 'Calibrando',
+              text: 'Aguarde o tempo de calibração fazendo o mínimo de expressões possível',
+              timer: 5000,
+              allowOutsideClick: false,
+              onOpen: function () {
+                swal.showLoading()
+              }
+          }).then(function () {},
+              // handling the promise rejection
+              function (dismiss) {
+                if (dismiss === 'timer') {
+                  console.log('Calibração concluida')
+                }
+            })
+        }
+
     $scope.checkboxes = function(){
       if (inicio){
           for (var i=0; i<$scope.frases.length; i++){
